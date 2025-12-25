@@ -1,33 +1,360 @@
-body {
-    font-family: Arial, sans-serif;
-    max-width: 900px;
-    margin: auto;
-    padding: 2rem;
-    line-height: 1.6;
-    color: #222;
+/* -------- Global -------- */
+* {
+    box-sizing: border-box;
 }
 
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Centered content container */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+/* -------- Header -------- */
 header {
-    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 2rem 1.5rem 1.5rem;
     margin-bottom: 2rem;
 }
 
-nav a {
-    margin: 0 0.75rem;
-    text-decoration: none;
+header h1 {
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+    font-weight: 400;
     color: #333;
-    font-weight: bold;
 }
 
-h1, h2, h3 {
-    color: #111;
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
 }
 
+nav a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+/* -------- Typography -------- */
+h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 1.5rem 0;
+    color: #333 !important;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 3rem 0 1.5rem 0;
+    color: #333 !important;
+}
+
+h2:first-of-type {
+    margin-top: 2rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0 0 0.75rem 0;
+    color: #333 !important;
+}
+
+main h1,
+main h2,
+main h3 {
+    color: #333 !important;
+}
+
+p {
+    margin: 0 0 1rem 0;
+}
+
+/* -------- News Items -------- */
+.news-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-tile {
+    display: flex;
+    flex-direction: column;
+}
+
+.news-date {
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 0.5rem;
+    text-transform: lowercase;
+    font-size: 0.9rem;
+}
+
+.news-title {
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: #333;
+    font-size: 1rem;
+}
+
+.news-content {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.9rem;
+    flex-grow: 1;
+}
+
+.news-content a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.news-content a:hover {
+    text-decoration: underline;
+}
+
+/* -------- Research/Project Tiles -------- */
+.tile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Horizontally scrollable tiles */
+.tile-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tile-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.tile-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tile-scroll::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.tile-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #999;
+}
+
+.tile-scroll .tile {
+    flex: 0 0 320px;
+    min-width: 320px;
+}
+
+.tile {
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 1.5rem;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.tile:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-color: #ccc;
+}
+
+.tile h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.tile p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.tile-links {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.tile-links a {
+    color: #0066cc;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+.tile-links a:hover {
+    text-decoration: underline;
+}
+
+/* -------- Publications/Research List -------- */
+.publication-item,
+.research-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.publication-item:last-child,
+.research-item:last-child {
+    border-bottom: none;
+}
+
+.publication-title {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.publication-authors {
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.publication-venue {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.publication-links {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.publication-links a {
+    color: #0066cc;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+.publication-links a:hover {
+    text-decoration: underline;
+}
+
+/* -------- About Section -------- */
+.about-content {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.about-photo {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.about-bio {
+    color: #666;
+    line-height: 1.7;
+}
+
+.about-bio strong {
+    color: #333;
+    font-weight: 500;
+}
+
+/* -------- Contact Section -------- */
+.contact-info {
+    margin-top: 2rem;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.contact-info a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* -------- Footer -------- */
 footer {
     text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid #ddd;
+    padding: 2rem 1.5rem;
     font-size: 0.9rem;
-    color: #555;
+    color: #999;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 4rem;
 }
 
+footer a {
+    color: #666;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 768px) {
+    main {
+        padding: 1.5rem 1rem 3rem;
+    }
+    
+    header {
+        padding: 1.5rem 1rem 1rem;
+    }
+    
+    header h1 {
+        font-size: 1.75rem;
+    }
+    
+    nav {
+        gap: 1rem;
+    }
+    
+    .tile-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-photo {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
