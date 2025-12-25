@@ -23,10 +23,16 @@ main {
 
 /* -------- Header -------- */
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     border-bottom: none;
     padding: 1.5rem 1.5rem;
     margin-bottom: 0;
     background-color: #1a3a5c;
+    z-index: 1000;
 }
 
 /* Name section below header */
@@ -35,6 +41,7 @@ header {
     background-color: #fcfcfc99; /* transparent white */
     padding: 2rem 1.5rem;
     margin-bottom: 2rem;
+    margin-top: 80px; /* Add top margin to account for fixed header */
     text-align: left;
     max-width: 900px;
     margin-left: auto;
