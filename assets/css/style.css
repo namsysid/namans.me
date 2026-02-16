@@ -219,7 +219,8 @@ p {
 /* -------- Research/Project Tiles -------- */
 .tile-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
+    justify-content: flex-start;
     gap: 1.5rem;
     margin-top: 2rem;
 }
@@ -264,6 +265,55 @@ p {
     border-radius: 4px;
     padding: 1.5rem;
     transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.compact-tile {
+    width: 320px;
+    height: 260px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.compact-tile-image {
+    width: 100%;
+    height: 185px;
+    object-fit: cover;
+    border-radius: 0;
+    margin: 0;
+}
+
+.compact-tile-image-placeholder {
+    background: linear-gradient(135deg, #f3f3f3 0%, #e8e8e8 100%);
+}
+
+.compact-tile-title {
+    margin: 0;
+    padding: 1rem;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: #333;
+}
+
+.compact-tile-no-image {
+    padding: 1rem;
+}
+
+.compact-tile-no-image .compact-tile-title {
+    padding: 0;
+    margin-bottom: 0.75rem;
+}
+
+.compact-tile-preview {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
 }
 
 .tile:hover {
@@ -440,4 +490,3 @@ footer a:hover {
         margin: 0 auto;
     }
 }
-
