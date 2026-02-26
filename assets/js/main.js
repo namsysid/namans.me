@@ -21,30 +21,35 @@ const newsItems = [
         image: 'assets/img/sjyouthorchestra.webp',
         imageAlt: 'SJ Youth Orchestra performs Post Victoriamque',
         href: 'post-victoriamque.html'
-    },
-    {
-        date: 'Jun 2024',
-        title: 'Conference presentation',
-        content: 'Details about your conference presentation or talk.'
     }
+    // {
+    //     date: 'Jun 2024',
+    //     title: 'Conference presentation',
+    //     content: 'Details about your conference presentation or talk.'
+    // }
 ];
 
 const researchAreas = [
     {
-        title: 'Research Area 1',
-        description: 'Description of your research area, methods, and contributions. This could include computer vision, machine learning, or other areas of interest.',
-        links: [{ label: 'Related Papers', href: 'research.html' }]
+        title: 'Pedal Visualizer',
+        description: 'Helping students develop musical judgment, especially in sustain pedal technique, through clear visual feedback.',
+        tileHref: 'pedal-visualizer.html'
     },
+    // {
+    //     title: 'Research Area 1',
+    //     description: 'Description of your research area, methods, and contributions. This could include computer vision, machine learning, or other areas of interest.',
+    //     tileHref: 'research.html'
+    // },
     {
-        title: 'Research Area 2',
-        description: 'Description of another research area you work on. Include key methods, applications, and outcomes.',
-        links: [{ label: 'Related Papers', href: 'research.html' }]
+        title: 'AQG with RAG and Solution Skeletons',
+        description: 'I study how retrieval-augmented generation can produce stronger olympiad-style questions by embedding solution skeletons instead of relying only on surface-level question text.',
+        tileHref: 'aqg-rag-solution-skeletons.html'
     },
-    {
-        title: 'Research Area 3',
-        description: 'Description of a third research area. You can add more tiles as needed for different research directions.',
-        links: [{ label: 'Related Papers', href: 'research.html' }]
-    }
+    // {
+    //     title: 'Research Area 3',
+    //     description: 'Description of a third research area. You can add more tiles as needed for different research directions.',
+    //     tileHref: 'research.html'
+    // }
 ];
 
 const projects = [
@@ -53,22 +58,22 @@ const projects = [
         description: 'SBReader is an app that mimics live science bowl competitions, with scoring, multiple choice support, timers, and an AI question judge. It also contains AI study assists.',
         tileHref: 'sbreader_description.html'
     },
-    {
-        title: 'Project Name 2',
-        description: 'Another project description. Explain the problem it solves, your approach, and any notable results or applications.',
-        links: [
-            { label: 'GitHub', href: '#' },
-            { label: 'Paper', href: '#' }
-        ]
-    },
-    {
-        title: 'Project Name 3',
-        description: 'Description of a third project. You can add more project tiles as needed to showcase your work.',
-        links: [
-            { label: 'GitHub', href: '#' },
-            { label: 'Website', href: '#' }
-        ]
-    }
+    // {
+    //     title: 'Project Name 2',
+    //     description: 'Another project description. Explain the problem it solves, your approach, and any notable results or applications.',
+    //     links: [
+    //         { label: 'GitHub', href: '#' },
+    //         { label: 'Paper', href: '#' }
+    //     ]
+    // },
+    // {
+    //     title: 'Project Name 3',
+    //     description: 'Description of a third project. You can add more project tiles as needed to showcase your work.',
+    //     links: [
+    //         { label: 'GitHub', href: '#' },
+    //         { label: 'Website', href: '#' }
+    //     ]
+    // }
 ];
 
 const opinions = [
