@@ -86,6 +86,46 @@ const opinions = [
     }
 ];
 
+let videos = [];
+
+function renderEmptyState(container, message) {
+    container.innerHTML = '';
+    const empty = document.createElement('p');
+    empty.className = 'section-empty';
+    empty.textContent = message;
+    container.appendChild(empty);
+}
+
+function formatVideoTitle(filename) {
+    return filename
+        .replace(/\.[^/.]+$/, '')
+        .replace(/[_-]+/g, ' ')
+        .trim();
+}
+
+async function loadVideos() {
+    try {
+        const response = await fetch('assets/videos/manifest.json', { cache: 'no-store' });
+        if (!response.ok) {
+            videos = [];
+            return;
+        }
+
+        const manifest = await response.json();
+        videos = Array.isArray(manifest)
+            ? manifest.map((item) => ({
+                title: item.title || formatVideoTitle(item.filename || item.href || 'Video'),
+                description: item.description || 'Local video in the videos directory.',
+                tileHref: item.href,
+                videoSrc: item.href,
+                filename: item.filename || ''
+            }))
+            : [];
+    } catch (error) {
+        videos = [];
+    }
+}
+
 function createTile(item) {
     const tile = document.createElement('div');
     tile.className = 'tile compact-tile';
@@ -233,6 +273,22 @@ function renderHomeProjects() {
     });
 }
 
+function renderHomeVideos() {
+    const container = document.getElementById('home-video-tiles');
+    if (!container) return;
+
+    if (!videos.length) {
+        renderEmptyState(container, 'Videos will appear here soon.');
+        return;
+    }
+
+    container.innerHTML = '';
+    videos.slice(0, 4).forEach((item) => {
+        const tile = createTile(item);
+        container.appendChild(tile);
+    });
+}
+
 function renderProjectsPageItems() {
     const container = document.getElementById('projects-grid');
     if (!container) return;
@@ -295,14 +351,53 @@ function renderOpinionsPageItems() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function renderVideosPageItems() {
+    const container = document.getElementById('videos-grid');
+    if (!container) return;
+
+    if (!videos.length) {
+        renderEmptyState(container, 'No videos published yet.');
+        return;
+    }
+
+    container.innerHTML = '';
+    videos.forEach((item) => {
+        const card = document.createElement('article');
+        card.className = 'video-card';
+
+        const video = document.createElement('video');
+        video.controls = true;
+        video.preload = 'metadata';
+        video.src = item.videoSrc;
+        card.appendChild(video);
+
+        const title = document.createElement('h3');
+        title.className = 'video-card-title';
+        title.textContent = item.title;
+        card.appendChild(title);
+
+        if (item.filename) {
+            const meta = document.createElement('p');
+            meta.className = 'video-card-meta';
+            meta.textContent = item.filename;
+            card.appendChild(meta);
+        }
+
+        container.appendChild(card);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadVideos();
     renderHomeNews();
     renderNewsPageItems();
     renderHomeResearch();
     renderResearchPageAreas();
+    renderHomeVideos();
     renderHomeProjects();
     renderProjectsPageItems();
     renderHomeOpinions();
     renderOpinionsPageItems();
+    renderVideosPageItems();
     console.log('Website loaded');
 });
