@@ -103,6 +103,16 @@ function formatVideoTitle(filename) {
         .trim();
 }
 
+function getVideoMimeType(path) {
+    const lowerPath = path.toLowerCase();
+    if (lowerPath.endsWith('.mp4')) return 'video/mp4';
+    if (lowerPath.endsWith('.m4v')) return 'video/mp4';
+    if (lowerPath.endsWith('.webm')) return 'video/webm';
+    if (lowerPath.endsWith('.ogg') || lowerPath.endsWith('.ogv')) return 'video/ogg';
+    if (lowerPath.endsWith('.mov')) return 'video/quicktime';
+    return '';
+}
+
 async function loadVideos() {
     try {
         const response = await fetch('assets/videos/manifest.json', { cache: 'no-store' });
@@ -116,7 +126,7 @@ async function loadVideos() {
             ? manifest.map((item) => ({
                 title: item.title || formatVideoTitle(item.filename || item.href || 'Video'),
                 description: item.description || 'Local video in the videos directory.',
-                tileHref: item.href,
+                tileHref: 'videos.html',
                 videoSrc: item.href,
                 filename: item.filename || ''
             }))
@@ -368,7 +378,16 @@ function renderVideosPageItems() {
         const video = document.createElement('video');
         video.controls = true;
         video.preload = 'metadata';
-        video.src = item.videoSrc;
+        video.playsInline = true;
+
+        const source = document.createElement('source');
+        source.src = item.videoSrc;
+        const mimeType = getVideoMimeType(item.videoSrc);
+        if (mimeType) {
+            source.type = mimeType;
+        }
+        video.appendChild(source);
+        video.append('Your browser could not play this video.');
         card.appendChild(video);
 
         const title = document.createElement('h3');
@@ -382,6 +401,24 @@ function renderVideosPageItems() {
             meta.textContent = item.filename;
             card.appendChild(meta);
         }
+
+        const links = document.createElement('div');
+        links.className = 'video-card-links';
+
+        const openLink = document.createElement('a');
+        openLink.href = item.videoSrc;
+        openLink.target = '_blank';
+        openLink.rel = 'noopener noreferrer';
+        openLink.textContent = 'Open video';
+        links.appendChild(openLink);
+
+        const downloadLink = document.createElement('a');
+        downloadLink.href = item.videoSrc;
+        downloadLink.download = item.filename || '';
+        downloadLink.textContent = 'Download';
+        links.appendChild(downloadLink);
+
+        card.appendChild(links);
 
         container.appendChild(card);
     });

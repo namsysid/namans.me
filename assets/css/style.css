@@ -373,6 +373,8 @@ p {
     display: block;
     border-radius: 4px;
     background-color: #000;
+    min-height: 220px;
+    aspect-ratio: 16 / 9;
 }
 
 .video-card-title {
@@ -385,6 +387,23 @@ p {
     margin: 0;
     color: #666;
     font-size: 0.9rem;
+}
+
+.video-card-links {
+    margin-top: 0.85rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.video-card-links a {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.video-card-links a:hover {
+    text-decoration: underline;
 }
 
 /* -------- Publications/Research List -------- */
