@@ -43,6 +43,7 @@ const projectsResearch = [
         kind: 'Research',
         title: 'Music Recommendation Systems',
         description: 'I am building recommendation approaches that combine listening behavior, contextual signals, and music structure to produce better personalized suggestions.',
+        tileHref: 'music-recommendation-systems.html',
         activityIds: ['music', 'music-technology']
     },
     {
@@ -115,6 +116,22 @@ const contentEntries = [
         content: 'Our VRC team advanced to US Open division finalist standing this season.',
         href: 'usopen-winner.html',
         projectId: 'vrc-flying-penguins'
+    },
+    {
+        categoryId: 'updates',
+        date: 'Apr 2026',
+        title: 'Music Recommendation Systems: Introduction',
+        content: 'I started working in this area after helping organize and perform Empathy Concerts for my piano school, where we played 50s and 60s pop on piano for geriatric patients. The results were striking: patients who could not remember their own names still sang along to specific songs. But this only worked for some songs, and selection was done by brute force. My hypothesis is that there is an algorithmic way to predict which songs they will like, instead of manually trying many candidates.',
+        href: 'music-recommendation-introduction.html',
+        projectId: 'music-recommendation-systems'
+    },
+    {
+        categoryId: 'updates',
+        date: 'Apr 2026',
+        title: 'Music Recommendation Systems: Proposed Product and Early Steps',
+        content: 'My proposed product is a recommendation system that takes songs patients liked (sang along) and disliked (no reaction), then predicts new songs they are likely to sing along to. I hypothesize responses are tied more to memory of original recordings than piano covers, so original recordings should be primary inputs. First, I will build a candidate set by release year and popularity using sources such as Spotify and Billboard. For evaluation, since Spotify recommendation APIs are now limited, I plan to use embedding vectors from a Music Representation Model, specifically Tencent MuQ. Rather than directly comparing normalized dot products to liked and disliked sets, I plan to use Bayesian Paired Ranking (BPR) to learn a weight vector that favors liked songs over disliked songs, then rank candidates by dot product with that learned vector.',
+        href: 'music-recommendation-pipeline.html',
+        projectId: 'music-recommendation-systems'
     },
     {
         categoryId: 'updates',
