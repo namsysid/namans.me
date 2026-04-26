@@ -2,7 +2,7 @@
 const taxonomy = {
     categories: {
         news: { label: 'News' },
-        updates: { label: 'Updates' },
+        updates: { label: 'Journal Blogs' },
         opinions: { label: 'Opinions' }
     },
     activities: {
