@@ -119,6 +119,30 @@ const contentEntries = [
     },
     {
         categoryId: 'updates',
+        date: 'May 2026',
+        title: 'Music Recommendation Systems: Update on the Classical DSP System',
+        content: 'I found Essentia from UPF, a library with many classical music information retrieval tools, and started working on melodic similarity as the first component of the similarity vector. I tried creating a temporal chroma vector from Essentia\'s Predominant Melody Extraction, but the output was noisy and inaccurate. It may still be useful if it captures differences between songs, though a cleaner melody extraction method would make comparison more reliable.',
+        href: 'music-recommendation-dsp-update.html',
+        projectId: 'music-recommendation-systems'
+    },
+    {
+        categoryId: 'updates',
+        date: 'May 2026',
+        title: 'Music Recommendation Systems: A New Side of Recommendation: Classical DSP System',
+        content: 'I plan to build a classical DSP-based recommendation system because the MuQ embedding pipeline is not very explainable or modifiable, and concert testing is too slow as the only validation method. The new system will use a 6-7 component similarity vector covering melodic, harmonic, rhythmic, valence, arousal, timbre, and chorus-prominence signals, with components grouped into similarity-only measures and state-function measures.',
+        href: 'music-recommendation-dsp.html',
+        projectId: 'music-recommendation-systems'
+    },
+    {
+        categoryId: 'updates',
+        date: 'May 2026',
+        title: 'Music Recommendation Systems: Update on the Recommendation System',
+        content: 'I successfully implemented the recommendation pipeline and worked with my piano school to incorporate the results into next month\'s recital. Building the candidate song list was difficult because Billboard hits of the day did not always include the most iconic songs, and some top songs are not widely remembered today. I found a list of the most requested songs of the 50s and 60s and used that for the candidate songs.',
+        href: 'music-recommendation-update.html',
+        projectId: 'music-recommendation-systems'
+    },
+    {
+        categoryId: 'updates',
         date: 'Apr 2026',
         title: 'Music Recommendation Systems: Introduction',
         content: 'I started working in this area after helping organize and perform Empathy Concerts for my piano school, where we played 50s and 60s pop on piano for geriatric patients. The results were striking: patients who could not remember their own names still sang along to specific songs. But this only worked for some songs, and selection was done by brute force. My hypothesis is that there is an algorithmic way to predict which songs they will like, instead of manually trying many candidates.',
