@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Recommendation System Being Used for Actual Empathy Concerts | Naman Siddheshwar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&family=Lato:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Naman Siddheshwar</h1>
+    <nav>
+        <a href="index.html">home</a>
+        <a href="about.html">about</a>
+        <a href="news.html">news</a>
+        <a href="updates.html">journal blogs</a>
+        <a href="opinions.html">opinions</a>
+        <a href="projects.html">projects/research</a>
+        <a href="videos.html">videos</a>
+        <a href="cv.html">cv</a>
+        <a href="contact.html">contact</a>
+    </nav>
+</header>
+
+<main>
+    <div class="news-article">
+        <div class="news-date">may 2026</div>
+        <h1>Music Recommendation System Being Used for Actual Empathy Concerts</h1>
+
+        <div class="news-article-content">
+            <h2>The Full Recommendation System</h2>
+
+            <h2>Building a Song Recommendation System for Patient Sing-Along Response</h2>
+
+            <h3>Introduction</h3>
+            <p>Music-based interventions often rely on familiar songs to encourage engagement, memory recall, and emotional response. In the setting this project targets, patients attend empathy recitals where pianists play cover versions of songs. Some songs lead patients to sing along, while others produce little or no visible reaction. The goal of this system is to use those observed reactions to recommend new songs that patients are more likely to sing along to in future sessions.</p>
+            <p>The proposed product is a recommendation system that takes two sets of songs as input:</p>
+            <ul>
+                <li>songs patients liked, meaning they sang along to them</li>
+                <li>songs patients did not like, meaning they had no clear reaction to them</li>
+            </ul>
+            <p>Given those examples, the system ranks new candidate songs by how likely they are to produce a sing-along response.</p>
+
+            <img class="news-article-image" src="assets/img/Screenshot 2026-05-20 at 9.36.26 PM.png" alt="Diagram of liked, disliked, and candidate songs passing through MuQ embeddings, BPR, and final ranking">
+
+            <h3>Core Hypothesis</h3>
+            <p>The central hypothesis behind the system is that patient reaction depends more on the memory of the original recording than on the cover version played during the recital. A pianist's performance may trigger the reaction, but the underlying memory is likely connected to the song as the patient first encountered it: through the original or most familiar commercial recording.</p>
+            <p>This assumption is imperfect. Many factors that affect recall and engagement cannot be controlled, including the patient's mood, health, personal history, and the broader context in which they originally heard the song. However, when building a computational recommender, original recordings provide a more stable and reproducible signal than live cover performances. For that reason, this system evaluates songs using audio embeddings from recordings rather than from recital performances.</p>
+
+            <h3>Candidate Song Generation</h3>
+            <p>Before ranking songs, the system needs a candidate pool. Candidate generation is based on the idea that songs are more likely to be remembered if they were popular during a meaningful period of the patient's life. Two useful signals are:</p>
+            <ul>
+                <li>release year</li>
+                <li>popularity</li>
+            </ul>
+            <p>The repository includes <code>fetch_billboard_candidates.py</code>, which builds candidate song manifests from Billboard Hot 100 data. The script can filter songs by first charting year, peak chart position, weeks on chart, and output size. For example, it can generate a set of popular songs from the late 1950s and 1960s, which may be appropriate for a specific patient population depending on age and background.</p>
+            <p>Spotify metadata could also be useful for release year and popularity, but Spotify's recommendation API is no longer reliable enough to serve as the main ranking engine for this pipeline. This project therefore uses metadata only for candidate selection and relies on audio representation learning for evaluation.</p>
+
+            <h3>Audio Representation with MuQ</h3>
+            <p>Once candidate songs are collected, each recording is converted into an embedding vector. An embedding is a numerical representation of the audio that captures musical information learned by a model.</p>
+            <p>This project uses Tencent's MuQ model, specifically:</p>
+            <pre><code>OpenMuQ/MuQ-large-msd-iter</code></pre>
+            <p>The scripts load each audio file, convert it to mono audio at the target sample rate, divide longer tracks into chunks, embed each chunk with MuQ, and average the chunk embeddings into one vector for the full track. The result is one L2-normalized embedding vector per song.</p>
+            <p>At this point, the system has three groups of vectors:</p>
+            <ul>
+                <li>liked song embeddings</li>
+                <li>disliked song embeddings</li>
+                <li>candidate song embeddings</li>
+            </ul>
+
+            <h3>Why Simple Similarity Is Not Enough</h3>
+            <p>A natural first approach is to compare each candidate song to the liked songs using cosine similarity. Since the embeddings are normalized, this is equivalent to a dot product. A candidate that is close to liked songs in embedding space would receive a high score.</p>
+            <p>However, this ignores the disliked set. Another possible approach is to compute two scores:</p>
+            <pre><code>similarity_to_liked
+similarity_to_disliked</code></pre>
+            <p>The problem is deciding how to combine those scores. A candidate might be similar to both liked and disliked songs. Another candidate might be moderately similar to liked songs but very dissimilar to disliked songs. A simple similarity method does not clearly define how those tradeoffs should be ranked.</p>
+            <p>This motivates a pairwise ranking approach.</p>
+
+            <h3>Bayesian Personalized Ranking</h3>
+            <p>The system uses Bayesian Personalized Ranking, or BPR, to learn a preference vector from liked and disliked examples.</p>
+            <p>Instead of treating the task as classification, BPR treats it as a ranking problem. The model does not need to decide whether an individual song is absolutely good or bad. It only needs to learn that, for this patient response setting, liked songs should rank above disliked songs.</p>
+            <p>Let:</p>
+            <pre><code>P = set of liked song embeddings
+N = set of disliked song embeddings
+w = learned preference vector</code></pre>
+            <p>For a liked embedding <code>p</code> and a disliked embedding <code>n</code>, the system computes:</p>
+            <pre><code>score(p) = p · w
+score(n) = n · w</code></pre>
+            <p>BPR trains <code>w</code> so that:</p>
+            <pre><code>score(p) &gt; score(n)</code></pre>
+            <p>The loss function for a pair is:</p>
+            <pre><code>loss = -log(sigmoid(score(p) - score(n)))</code></pre>
+            <p>or equivalently:</p>
+            <pre><code>loss = -log(sigmoid((p · w) - (n · w)))</code></pre>
+            <p>If the liked song already scores much higher than the disliked song, the loss is small. If the disliked song scores higher, or if the scores are too close, the loss is larger. During training, the system samples liked-disliked pairs and uses back propagation to adjust <code>w</code>.</p>
+            <p>Importantly, MuQ itself is not retrained. The song embeddings remain fixed. The only learned object is the preference vector <code>w</code>.</p>
+
+            <img class="news-article-image" src="assets/img/Screenshot 2026-05-20 at 10.00.09 PM.png" alt="Diagram of BPR pairings, loss calculation, back propagation, and learned weights vector">
+
+            <h3>What Back Propagation Changes</h3>
+            <p>Back propagation determines how each dimension of <code>w</code> contributed to the ranking error. If a liked song does not score sufficiently higher than a disliked song, the optimizer changes <code>w</code> in the direction that reduces the BPR loss.</p>
+            <p>Intuitively, this update makes the learned vector point more toward the liked song embeddings and away from the disliked song embeddings. Over many sampled pairs, <code>w</code> becomes a compact representation of the musical characteristics that separate songs patients sang along to from songs that produced no reaction.</p>
+
+            <h3>Candidate Ranking</h3>
+            <p>After training, the system evaluates new songs by embedding each candidate recording with MuQ and scoring it against the learned preference vector:</p>
+            <pre><code>candidate_score = candidate_embedding · w</code></pre>
+            <p>Candidates are sorted from highest score to lowest score. The highest-ranked songs are the system's best predictions for songs that patients may sing along to.</p>
+
+            <h3>Limitations</h3>
+            <p>This system should be understood as a ranking aid, not a definitive model of patient memory or musical preference. There are several limitations.</p>
+            <p>Ones more relating to the premise of the hypothesis include:</p>
+            <ul>
+                <li>Patient response is affected by mood, health, context, and personal history.</li>
+                <li>Original recordings may not perfectly match the version a patient remembers.</li>
+                <li>Audio similarity does not capture lyrical familiarity, cultural meaning, or autobiographical associations directly.</li>
+            </ul>
+            <p>More technical issues include:</p>
+            <ul>
+                <li>A small liked/disliked dataset may produce an unstable preference vector.</li>
+                <li>Candidate generation strongly affects the final recommendations.</li>
+            </ul>
+            <p>The system is therefore most useful when combined with human judgment. It can produce a ranked shortlist, but caregivers, musicians, and researchers should evaluate the recommendations in context.</p>
+
+            <h3>Conclusion</h3>
+            <p>This project uses music representation learning to support a practical recommendation problem: predicting which songs may lead patients to sing along. By embedding original recordings with MuQ and training a BPR preference vector from observed liked and disliked responses, the system turns qualitative recital observations into a repeatable ranking pipeline.</p>
+            <p>The result is not a general-purpose music recommender. It is a focused prototype for ranking candidate songs according to a specific patient response: whether a song is likely to trigger singing along.</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>© 2025 Naman Siddheshwar</p>
+</footer>
+</body>
+</html>

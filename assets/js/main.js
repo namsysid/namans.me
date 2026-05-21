@@ -75,6 +75,16 @@ const projectsResearch = [
 const contentEntries = [
     {
         categoryId: 'news',
+        date: 'May 2026',
+        title: 'Music Recommendation System Being Used for Actual Empathy Concerts',
+        content: 'The full Music Recommendation Systems pipeline is being used to recommend songs for real empathy concerts, ranking candidate songs by predicted patient sing-along response.',
+        image: 'assets/img/Screenshot 2026-05-20 at 9.36.26 PM.png',
+        imageAlt: 'Music recommendation system pipeline diagram',
+        href: 'music-recommendation-full-system.html',
+        projectId: 'music-recommendation-systems'
+    },
+    {
+        categoryId: 'news',
         date: 'Feb 2026',
         title: 'MIT CubeSat Finalist and Best Demo Award',
         content: 'I am proud to announce that our team was selected as a finalist for the MIT Build a CubeSat competition and has won the Best Demo Award!',
@@ -116,6 +126,16 @@ const contentEntries = [
         content: 'Our VRC team advanced to US Open division finalist standing this season.',
         href: 'usopen-winner.html',
         projectId: 'vrc-flying-penguins'
+    },
+    {
+        categoryId: 'updates',
+        date: 'May 2026',
+        title: 'Music Recommendation System Being Used for Actual Empathy Concerts',
+        content: 'The full recommendation system uses MuQ audio embeddings and Bayesian Personalized Ranking to learn from songs patients sang along to and songs that produced no clear reaction, then ranks new candidate songs for future empathy concerts.',
+        image: 'assets/img/Screenshot 2026-05-20 at 9.36.26 PM.png',
+        imageAlt: 'Music recommendation system pipeline diagram',
+        href: 'music-recommendation-full-system.html',
+        projectId: 'music-recommendation-systems'
     },
     {
         categoryId: 'updates',
@@ -164,6 +184,16 @@ const contentEntries = [
         content: 'I shipped another Pedal Visualizer iteration focused on cleaner sustain transitions and clearer timing cues for student feedback.',
         href: 'pedal-visualizer.html',
         projectId: 'pedal-visualizer'
+    },
+    {
+        categoryId: 'opinions',
+        date: 'May 2026',
+        title: 'Music Recommendation System Being Used for Actual Empathy Concerts',
+        content: 'I explain the core hypothesis behind the system: patient response likely depends more on memory of the original recording than on the live cover version, making original-recording embeddings a useful basis for a practical ranking aid.',
+        image: 'assets/img/Screenshot 2026-05-20 at 9.36.26 PM.png',
+        imageAlt: 'Music recommendation system pipeline diagram',
+        href: 'music-recommendation-full-system.html',
+        projectId: 'music-recommendation-systems'
     },
     {
         categoryId: 'opinions',

@@ -250,6 +250,32 @@ p {
     margin-bottom: 1.5rem;
 }
 
+.news-article-content code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.95em;
+    background-color: #f5f8fc;
+    border: 1px solid #e4ebf3;
+    border-radius: 4px;
+    padding: 0.05rem 0.25rem;
+}
+
+.news-article-content pre {
+    overflow-x: auto;
+    background-color: #f5f8fc;
+    border: 1px solid #e4ebf3;
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 0 0 1.5rem 0;
+}
+
+.news-article-content pre code {
+    display: block;
+    background: none;
+    border: 0;
+    padding: 0;
+    white-space: pre;
+}
+
 /* -------- Research/Project Tiles -------- */
 .tile-grid {
     display: grid;
