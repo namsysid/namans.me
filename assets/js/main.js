@@ -15,6 +15,14 @@ const taxonomy = {
 
 const projectsResearch = [
     {
+        id: 'robotics',
+        kind: 'Project / Research',
+        title: 'Robotics',
+        description: 'Robotics work across electronics, sensing, mechanisms, embedded systems, and competition engineering.',
+        tileHref: 'robotics.html',
+        activityIds: ['robotics']
+    },
+    {
         id: 'sbreader',
         kind: 'Project',
         title: 'SBReader',
@@ -126,6 +134,16 @@ const contentEntries = [
         content: 'Our VRC team advanced to US Open division finalist standing this season.',
         href: 'usopen-winner.html',
         projectId: 'vrc-flying-penguins'
+    },
+    {
+        categoryId: 'updates',
+        date: 'Jul 2026',
+        title: 'First Days in ESAP Robotics: Breadboards, Voltage Dividers, and Potentiometers',
+        content: 'In my first few days in ESAP robotics, I worked through the electronics basics behind sensor inputs: setting up voltage dividers, measuring output with a multimeter, and wiring potentiometer systems on breadboards.',
+        image: 'assets/img/esap-robotics-voltage-divider-meter.png',
+        imageAlt: 'Breadboard voltage divider test with a bench supply and multimeter',
+        href: 'esap-robotics-electronics.html',
+        projectId: 'robotics'
     },
     {
         categoryId: 'updates',

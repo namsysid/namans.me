@@ -276,6 +276,32 @@ p {
     white-space: pre;
 }
 
+.article-image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.article-image-grid figure {
+    margin: 0;
+}
+
+.article-image-grid img {
+    width: 100%;
+    height: 320px;
+    display: block;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.article-image-grid figcaption {
+    margin-top: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
 /* -------- Research/Project Tiles -------- */
 .tile-grid {
     display: grid;
@@ -605,6 +631,14 @@ footer a:hover {
 
     .video-grid {
         grid-template-columns: 1fr;
+    }
+
+    .article-image-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .article-image-grid img {
+        height: auto;
     }
     
     .about-content {

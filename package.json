@@ -1,4 +1,10 @@
 {
+  "name": "namans-web",
+  "private": true,
+  "scripts": {
+    "dev": "live-server --host=127.0.0.1 --port=5500 .",
+    "start": "npm run dev"
+  },
   "dependencies": {
     "live-server": "^1.2.2"
   }

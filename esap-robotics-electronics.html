@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Days in ESAP Robotics: Breadboards, Voltage Dividers, and Potentiometers | Naman Siddheshwar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&family=Lato:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Naman Siddheshwar</h1>
+    <nav>
+        <a href="index.html">home</a>
+        <a href="about.html">about</a>
+        <a href="news.html">news</a>
+        <a href="updates.html">journal blogs</a>
+        <a href="opinions.html">opinions</a>
+        <a href="projects.html">projects/research</a>
+        <a href="videos.html">videos</a>
+        <a href="cv.html">cv</a>
+        <a href="contact.html">contact</a>
+    </nav>
+</header>
+
+<main>
+    <div class="news-article">
+        <div class="news-date">jul 2026</div>
+        <h1>First Days in ESAP Robotics: Breadboards, Voltage Dividers, and Potentiometers</h1>
+
+        <img src="assets/img/esap-robotics-voltage-divider-meter.png" alt="Breadboard voltage divider test with a bench supply and multimeter" class="news-article-image">
+
+        <div class="news-article-content">
+            <p>My first few days in ESAP robotics were focused on getting comfortable with the electronics layer that makes robot sensing possible. Instead of starting with a finished mechanism, I spent time on the bench with a power supply, breadboards, resistors, alligator clips, and a multimeter, building small circuits and checking that the voltages matched what I expected.</p>
+
+            <p>The main exercise was setting up voltage dividers. I wired resistor networks on a breadboard, supplied them with a known input voltage, and measured the output node with the multimeter. Seeing the measured value settle near the calculated divided voltage made the relationship between the schematic and the physical circuit much clearer.</p>
+
+            <p>After that, I worked with potentiometer systems. A potentiometer is basically an adjustable voltage divider, so turning the shaft changes the output voltage. That makes it useful for robotics because it can represent position, rotation, or calibration settings as a voltage that a controller can read.</p>
+
+            <div class="article-image-grid">
+                <figure>
+                    <img src="assets/img/esap-robotics-breadboard-closeup.png" alt="Close-up of a breadboard voltage divider circuit with test leads">
+                    <figcaption>Checking the output node of a breadboarded divider circuit.</figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/img/esap-robotics-potentiometer.png" alt="Potentiometer wired on a breadboard and adjusted with a screwdriver">
+                    <figcaption>Testing a potentiometer as an adjustable voltage divider.</figcaption>
+                </figure>
+            </div>
+
+            <p>This was a useful starting point because the work was simple enough to debug carefully, but still connected directly to robotics. Before a sensor value shows up in code, the wiring has to be stable, the reference voltage has to make sense, and the signal has to be measured correctly. These first circuits helped me practice that process from the hardware side.</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>© 2025 Naman Siddheshwar</p>
+</footer>
+</body>
+</html>
