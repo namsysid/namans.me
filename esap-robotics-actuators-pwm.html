@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESAP Robotics: Servos, Solenoids, PWM, and Digital Inputs | Naman Siddheshwar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&family=Lato:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Naman Siddheshwar</h1>
+    <nav>
+        <a href="index.html">home</a>
+        <a href="about.html">about</a>
+        <a href="news.html">news</a>
+        <a href="updates.html">journal blogs</a>
+        <a href="opinions.html">opinions</a>
+        <a href="projects.html">projects/research</a>
+        <a href="videos.html">videos</a>
+        <a href="cv.html">cv</a>
+        <a href="contact.html">contact</a>
+    </nav>
+</header>
+
+<main>
+    <div class="news-article">
+        <div class="news-date">jul 2026</div>
+        <h1>ESAP Robotics: Servos, Solenoids, PWM, and Digital Inputs</h1>
+
+        <img src="assets/img/esap-robotics-servo-pwm-scope.jpg" alt="Oscilloscope showing a servo PWM pulse from the ESP32" class="news-article-image">
+
+        <div class="news-article-content">
+            <p>After the first breadboard and voltage-divider work, ESAP robotics moved from reading signals to producing motion. The main thread through these tasks was actuation: making LEDs fade with PWM, driving servos smoothly, switching solenoids through MOSFETs, and reading digital inputs reliably enough to use them in a physical system.</p>
+
+            <p>The first useful mental model was duty cycle. I wrote code where a 500 Hz LED signal had a 2 ms period, so a 25% duty cycle meant about 500 microseconds on and the rest off. Then I used the ESP32 LEDC library with 12-bit resolution, writing values up to 4095 to make an LED fade in and out like a heartbeat. The code treated brightness as a value that could be shaped over time, not just on or off:</p>
+
+<pre><code class="language-cpp">ledcWrite(LED_PIN, 4095 * (max_intensity * (i / (time_to_increase * 500))));
+delay(2);</code></pre>
+
+            <p>That carried directly into servos. The target signal was a 50 Hz PWM waveform with a 1 ms on-pulse, which is a 5% duty cycle. We checked that on the oscilloscope before connecting the servo, because the waveform matters: a servo is not being powered by the signal pin, it is interpreting pulse width as a position command while taking real power from a separate 5 V supply.</p>
+
+            <figure>
+                <img src="assets/img/esap-robotics-servo-pwm-scope.jpg" alt="Oscilloscope showing a servo PWM pulse from the ESP32">
+                <figcaption>Verifying the servo PWM signal on an oscilloscope before treating the code as correct.</figcaption>
+            </figure>
+
+            <p>Once the basic PWM worked, I wrote a smoother movement routine instead of only jumping between two positions. The servo still moves as fast as it physically can when given a target, so the code had to break a large motion into smaller steps over a requested time interval. I also tested a potentiometer-controlled version, mapping the analog value to the servo range. That version had noise, which I noted may have come from calling my own sweep function instead of writing more directly to the PWM output.</p>
+
+            <p>Solenoids were the next actuator type. The important difference was that a solenoid draws much more current than a microcontroller GPIO pin can safely supply, so the microcontroller controlled a MOSFET instead of the solenoid directly. For an early xylophone concept, we planned one MOSFET and one solenoid for each bar, with port expanders helping the microcontroller coordinate many outputs. The mechanical idea was a seesaw-style linkage that converted the solenoid's linear pull into mallet rotation, with a spring providing a fast release.</p>
+
+            <p>The solenoid testing made the power side more concrete. We first debugged the MOSFET circuit with an LED and resistor, then replaced the LED with the solenoid. Adding more current made the solenoid faster; I estimated the speed increase from 12 V to 16 V at about 35%. A resistor-heavy version did not work well because the resistance was still too high, and a 1.5 kOhm resistor in parallel was functionally useless because it drew negligible current compared with the solenoid path.</p>
+
+            <p>The digital input work added the input side of the same problem. I wired a switch to GPIO04 with <code>INPUT_PULLUP</code>, printed whenever the state changed, and then wrote a debounce routine so that contact bounce would not appear as multiple intentional presses. The fastest manual test I recorded was about 300 ms for two presses, which was a useful reminder that software timing has to separate real events from electrical noise.</p>
+
+            <p>The main lesson from this set of tasks was that robotics actuation is not only "make the motor move." PWM settings, power delivery, current limits, mechanical release, input noise, and timing jitter all affect whether the robot can do the real task. A simple single-actuator demo is useful, but the real engineering starts when the electronics, code timing, and mechanism have to agree at the same time.</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>© 2025 Naman Siddheshwar</p>
+</footer>
+</body>
+</html>

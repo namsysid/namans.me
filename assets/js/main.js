@@ -23,11 +23,27 @@ const projectsResearch = [
         activityIds: ['robotics']
     },
     {
+        id: 'music-recommendation-systems',
+        kind: 'Research',
+        title: 'Music Recommendation Systems',
+        description: 'I am building recommendation approaches that combine listening behavior, contextual signals, and music structure to produce better personalized suggestions.',
+        tileHref: 'music-recommendation-systems.html',
+        activityIds: ['music', 'music-technology']
+    },
+    {
         id: 'sbreader',
         kind: 'Project',
         title: 'SBReader',
         description: 'SBReader is an app that mimics live science bowl competitions, with scoring, multiple choice support, timers, and an AI question judge. It also contains AI study assists.',
         tileHref: 'sbreader_description.html',
+        activityIds: []
+    },
+    {
+        id: 'aqg-rag-solution-skeletons',
+        kind: 'Research',
+        title: 'AQG with RAG and Solution Skeletons',
+        description: 'I study how retrieval-augmented generation can produce stronger olympiad-style questions by embedding solution skeletons instead of relying only on surface-level question text.',
+        tileHref: 'aqg-rag-solution-skeletons.html',
         activityIds: []
     },
     {
@@ -39,20 +55,12 @@ const projectsResearch = [
         activityIds: ['music', 'music-technology']
     },
     {
-        id: 'aqg-rag-solution-skeletons',
-        kind: 'Research',
-        title: 'AQG with RAG and Solution Skeletons',
-        description: 'I study how retrieval-augmented generation can produce stronger olympiad-style questions by embedding solution skeletons instead of relying only on surface-level question text.',
-        tileHref: 'aqg-rag-solution-skeletons.html',
-        activityIds: []
-    },
-    {
-        id: 'music-recommendation-systems',
-        kind: 'Research',
-        title: 'Music Recommendation Systems',
-        description: 'I am building recommendation approaches that combine listening behavior, contextual signals, and music structure to produce better personalized suggestions.',
-        tileHref: 'music-recommendation-systems.html',
-        activityIds: ['music', 'music-technology']
+        id: 'mit-cubesat',
+        kind: 'Project',
+        title: 'MIT Build a CubeSat',
+        description: 'Team project focused on CubeSat mission design, systems integration, and demo-ready prototyping for the MIT Build a CubeSat challenge.',
+        tileHref: 'cubesat-finalist.html',
+        activityIds: ['robotics', 'academic-competitions']
     },
     {
         id: 'vrc-flying-penguins',
@@ -60,14 +68,6 @@ const projectsResearch = [
         title: 'VRC Flying Penguins',
         description: 'Competition robotics work spanning strategy, robot design, and tournament execution across regional and international VEX events.',
         tileHref: 'vex-robotics-awards.html',
-        activityIds: ['robotics', 'academic-competitions']
-    },
-    {
-        id: 'mit-cubesat',
-        kind: 'Project',
-        title: 'MIT Build a CubeSat',
-        description: 'Team project focused on CubeSat mission design, systems integration, and demo-ready prototyping for the MIT Build a CubeSat challenge.',
-        tileHref: 'cubesat-finalist.html',
         activityIds: ['robotics', 'academic-competitions']
     },
     {
@@ -134,6 +134,26 @@ const contentEntries = [
         content: 'Our VRC team advanced to US Open division finalist standing this season.',
         href: 'usopen-winner.html',
         projectId: 'vrc-flying-penguins'
+    },
+    {
+        categoryId: 'updates',
+        date: 'Jul 2026',
+        title: 'Early Steps to Building Piano Player',
+        content: 'We started turning actuator tests into a piano-playing prototype: testing whether small servos could press keys, coordinating seven servos to play a melody, scaling to a PCA9685 PWM driver, and measuring keypress delay so timing could be compensated in software.',
+        image: 'assets/img/esap-robotics-servo-keyboard-build.jpg',
+        imageAlt: 'Servo-actuated keyboard prototype with wiring and a PWM servo driver',
+        href: 'esap-robotics-piano-player-early-steps.html',
+        projectId: 'robotics'
+    },
+    {
+        categoryId: 'updates',
+        date: 'Jul 2026',
+        title: 'ESAP Robotics: Servos, Solenoids, PWM, and Digital Inputs',
+        content: 'I moved from basic signal generation into actuation: shaping LED brightness with PWM, verifying a 50 Hz servo pulse on an oscilloscope, driving solenoids through MOSFETs, and debouncing digital inputs so software could distinguish real presses from electrical noise.',
+        image: 'assets/img/esap-robotics-servo-pwm-scope.jpg',
+        imageAlt: 'Oscilloscope showing a servo PWM pulse from the ESP32',
+        href: 'esap-robotics-actuators-pwm.html',
+        projectId: 'robotics'
     },
     {
         categoryId: 'updates',
@@ -459,7 +479,7 @@ function renderHomeUpdates() {
 }
 
 function renderHomeProjectsResearch() {
-    renderProjectsResearchTiles('home-project-research-tiles', 4);
+    renderProjectsResearchTiles('home-project-research-tiles');
 }
 
 function renderHomeVideos() {

@@ -276,6 +276,24 @@ p {
     white-space: pre;
 }
 
+.news-article-content figure {
+    margin: 2rem 0;
+}
+
+.news-article-content figure > img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.news-article-content figcaption {
+    margin-top: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
 .article-image-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -293,13 +311,6 @@ p {
     display: block;
     object-fit: cover;
     border-radius: 4px;
-}
-
-.article-image-grid figcaption {
-    margin-top: 0.5rem;
-    color: #666;
-    font-size: 0.9rem;
-    line-height: 1.5;
 }
 
 /* -------- Research/Project Tiles -------- */
