@@ -82,6 +82,16 @@ const projectsResearch = [
 
 const contentEntries = [
     {
+        categoryId: 'updates',
+        date: 'Aug 2026',
+        title: 'ESAP Robotics Final: Wrapping Up the Piano Player',
+        content: 'The final piano player work focused on speed and reliability: optimizing code, moving to MIDI-like note events, using non-blocking schedulers, tuning servo lift-time logic for repeated notes, and stiffening the MDF build so the robot could play faster pieces more clearly.',
+        image: 'assets/img/esap-robotics-servo-keyboard-build.jpg',
+        imageAlt: 'Servo-actuated piano player prototype with wiring and a PWM servo driver',
+        href: 'esap-robotics-final-piano-player.html',
+        projectId: 'robotics'
+    },
+    {
         categoryId: 'news',
         date: 'May 2026',
         title: 'Music Recommendation System Being Used for Actual Empathy Concerts',

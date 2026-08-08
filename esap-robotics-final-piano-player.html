@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESAP Robotics Final: Wrapping Up the Piano Player | Naman Siddheshwar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&family=Lato:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Naman Siddheshwar</h1>
+    <nav>
+        <a href="index.html">home</a>
+        <a href="about.html">about</a>
+        <a href="news.html">news</a>
+        <a href="updates.html">journal blogs</a>
+        <a href="opinions.html">opinions</a>
+        <a href="projects.html">projects/research</a>
+        <a href="videos.html">videos</a>
+        <a href="cv.html">cv</a>
+        <a href="contact.html">contact</a>
+    </nav>
+</header>
+
+<main>
+    <div class="news-article">
+        <div class="news-date">aug 2026</div>
+        <h1>ESAP Robotics Final: Wrapping Up the Piano Player</h1>
+
+        <img src="assets/img/esap-robotics-servo-keyboard-build.jpg" alt="Servo-actuated piano player prototype mounted above a keyboard" class="news-article-image">
+
+        <div class="news-article-content">
+            <p>By the end of ESAP robotics, the piano player had moved from a set of actuator experiments into a much more complete system: servos mounted over keys, electronics drilled down more securely, timing logic rewritten around musical events, and a codebase tuned for speed. The final stretch was less about proving that a servo could press a key and more about making the whole machine respond fast enough and consistently enough to play real pieces.</p>
+
+            <p>A large part of the improvement came from code optimization. Earlier versions worked, but they left too much timing slack in places where the robot had to react quickly. The final code focused on reducing blocking behavior and making note handling more direct, so the controller could keep scheduling new actions while other notes were still being played.</p>
+
+            <p>One major change was the note structure. We moved toward a more MIDI-like model with three essential pieces of information: pitch, note on, and duration. Instead of treating a song as a long chain of delays, the scheduler could look at note events, decide when a pitch should turn on, and separately decide how long that note should remain active. This made the representation cleaner and closer to how music is usually encoded.</p>
+
+            <p>The challenge was keeping that cleaner structure as efficient as the previous one. We used non-blocking schedulers so the microcontroller did not have to wait idly during a note. While one servo was holding or releasing a note, the scheduler could continue checking the rest of the song timeline and preparing other servo commands. That let the new MIDI-style structure stay readable without giving up the timing efficiency needed for faster passages.</p>
+
+            <h2>Understanding Lift Time</h2>
+
+            <p>The most important speed improvement came from understanding lift times: the time it takes for a servo head to rise back up far enough that it can come down again for the next note. This mattered most for repeated notes. If the same key had to be played several times quickly, the servo could not simply stay down for the full written duration. It had to release early enough to reset before the next strike.</p>
+
+            <p>Our first solution used static lift times. The code assumed a worst case where the same note might repeat multiple times at a fast frequency, so it would call the servo head back up early enough to be ready for the next repeated note. This protected repeated-note sections, but it created a new problem: in very fast sections, notes were sometimes released before the servo head had fully touched the key. In those cases, the optimization made the note faster on paper but weaker or missing in sound.</p>
+
+            <p>We changed the logic so that strict lift-time enforcement only happened when notes were actually repeated multiple times in a row. That made the behavior more musical. A single short note no longer had to pay the full worst-case reset cost unless the upcoming pattern required it. The scheduler became more context-aware: repeated-note runs were handled aggressively, while other fast passages were allowed to use more of their available note duration.</p>
+
+            <p>We also adjusted the percentage of each note that the robot tried to play. In standard piano playing, notes are often held for around 80% of their expected duration. Holding much more can make the passage sound too connected, or legato; holding much less can make it too sharp, or staccato. We originally used the same idea here. However, for very short durations, 80% was sometimes not enough physical time for the servo to press the key clearly.</p>
+
+            <p>To fix that, we allowed short notes to use their full duration, and in some cases slightly exceed it, so the note could actually be heard. This mattered in the Bach pieces and in some of the faster notes in "Moondance." The tradeoff was that the robot sometimes had to bend the ideal written duration slightly, but the result was better because the listener could hear the intended notes.</p>
+
+            <h2>Final Build</h2>
+
+            <p>On the build side, we made the prototype more rigid. The electronics and servo mounts were drilled down solidly instead of relying on looser placement, and we used weights to prevent the MDF base from flexing. That was important because even small changes in height or angle could change whether a servo actually reached the key. The software timing only mattered if the mechanical frame kept the servo heads in the right positions.</p>
+
+            <p>The full repository for the project, including images, code, and videos, is available at <a href="https://github.com/namsysid/ESAP_Piano.git" target="_blank" rel="noopener noreferrer">namsysid/ESAP_Piano.git</a>.</p>
+
+            <h2>Final Videos</h2>
+
+            <div class="video-grid article-video-grid">
+                <article class="video-card">
+                    <video controls preload="metadata" playsinline>
+                        <source src="assets/videos/IMG_0672.mp4" type="video/mp4">
+                        Your browser could not play this video.
+                    </video>
+                    <h3 class="video-card-title">IMG 0672</h3>
+                </article>
+
+                <article class="video-card">
+                    <video controls preload="metadata" playsinline>
+                        <source src="assets/videos/IMG_0691.mp4" type="video/mp4">
+                        Your browser could not play this video.
+                    </video>
+                    <h3 class="video-card-title">IMG 0691</h3>
+                </article>
+
+                <article class="video-card">
+                    <video controls preload="metadata" playsinline>
+                        <source src="assets/videos/IMG_5677.mp4" type="video/mp4">
+                        Your browser could not play this video.
+                    </video>
+                    <h3 class="video-card-title">IMG 5677</h3>
+                </article>
+
+                <article class="video-card">
+                    <video controls preload="metadata" playsinline>
+                        <source src="assets/videos/Golden Hour copy.mp4" type="video/mp4">
+                        Your browser could not play this video.
+                    </video>
+                    <h3 class="video-card-title">Golden Hour</h3>
+                </article>
+
+                <article class="video-card">
+                    <video controls preload="metadata" playsinline>
+                        <source src="assets/videos/Thunder copy.mp4" type="video/mp4">
+                        Your browser could not play this video.
+                    </video>
+                    <h3 class="video-card-title">Thunder</h3>
+                </article>
+
+                <article class="video-card">
+                    <video controls preload="metadata" playsinline>
+                        <source src="assets/videos/Moondance copy.mp4" type="video/mp4">
+                        Your browser could not play this video.
+                    </video>
+                    <h3 class="video-card-title">Moondance</h3>
+                </article>
+
+                <article class="video-card">
+                    <video controls preload="metadata" playsinline>
+                        <source src="assets/videos/Piano Man copy.mp4" type="video/mp4">
+                        Your browser could not play this video.
+                    </video>
+                    <h3 class="video-card-title">Piano Man</h3>
+                </article>
+
+                <article class="video-card">
+                    <video controls preload="metadata" playsinline>
+                        <source src="assets/videos/Stairway to Heaven copy.mp4" type="video/mp4">
+                        Your browser could not play this video.
+                    </video>
+                    <h3 class="video-card-title">Stairway to Heaven</h3>
+                </article>
+
+                <article class="video-card">
+                    <video controls preload="metadata" playsinline>
+                        <source src="assets/videos/Harry Potter Theme Song copy.mp4" type="video/mp4">
+                        Your browser could not play this video.
+                    </video>
+                    <h3 class="video-card-title">Harry Potter Theme Song</h3>
+                </article>
+
+                <article class="video-card">
+                    <video controls preload="metadata" playsinline>
+                        <source src="assets/videos/Starwars Therme copy.mp4" type="video/mp4">
+                        Your browser could not play this video.
+                    </video>
+                    <h3 class="video-card-title">Star Wars Theme</h3>
+                </article>
+
+                <article class="video-card">
+                    <video controls preload="metadata" playsinline>
+                        <source src="assets/videos/bach_invention_no15 copy.mov" type="video/quicktime">
+                        Your browser could not play this video.
+                    </video>
+                    <h3 class="video-card-title">Bach Invention No. 15</h3>
+                </article>
+
+                <article class="video-card">
+                    <video controls preload="metadata" playsinline>
+                        <source src="assets/videos/bach_fugue_no2 copy.mov" type="video/quicktime">
+                        Your browser could not play this video.
+                    </video>
+                    <h3 class="video-card-title">Bach Fugue No. 2</h3>
+                </article>
+
+                <article class="video-card">
+                    <video controls preload="metadata" playsinline>
+                        <source src="assets/videos/jurrasic_park copy.mov" type="video/quicktime">
+                        Your browser could not play this video.
+                    </video>
+                    <h3 class="video-card-title">Jurassic Park</h3>
+                </article>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>© 2025 Naman Siddheshwar</p>
+</footer>
+</body>
+</html>
