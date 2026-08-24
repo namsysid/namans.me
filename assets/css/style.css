@@ -218,6 +218,142 @@ p {
     margin: 0 auto;
 }
 
+.folder-grid {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+}
+
+.folder-tile {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    width: 220px;
+    padding: 1.25rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background: #fafafa;
+    color: #333;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.folder-tile:hover {
+    border-color: #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.folder-icon {
+    position: relative;
+    width: 45px;
+    height: 31px;
+    border-radius: 3px;
+    background: #e67e22;
+}
+
+.folder-icon::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 0;
+    width: 21px;
+    height: 10px;
+    border-radius: 3px 3px 0 0;
+    background: #e67e22;
+}
+
+.folder-back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #666;
+    text-decoration: none;
+}
+
+.folder-entry-list {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+}
+
+.folder-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem 1.2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none;
+}
+
+.folder-entry:hover {
+    border-color: #e67e22;
+    background: #fffaf5;
+}
+
+.folder-entry small {
+    color: #666;
+}
+
+.journal-navigation {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.journal-next-tile,
+.journal-back-tile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background: #fafafa;
+    color: #333;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.journal-next-tile:hover,
+.journal-back-tile:hover {
+    border-color: #e67e22;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.journal-next-label {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: #e67e22;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.journal-next-title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+}
+
+.journal-next-arrow {
+    color: #e67e22;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .journal-navigation {
+        grid-template-columns: 1fr;
+    }
+}
+
 .news-article-header {
     display: flex;
     align-items: center;
