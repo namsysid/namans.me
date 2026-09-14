@@ -1,55 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="description" content="Naman Siddheshwar — projects, research, and professional updates.">
-    <meta name="keywords" content="Naman Siddheshwar, robotics, AI, research">
-    <meta name="author" content="Naman Siddheshwar">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naman Siddheshwar</title>
+    <meta name="description" content="Naman Siddheshwar is a student researcher, builder, and musician exploring computer science, robotics, physics, and music technology.">
+    <meta name="keywords" content="Naman Siddheshwar, robotics, AI, research, music technology, science bowl">
+    <meta name="author" content="Naman Siddheshwar">
+    <meta name="theme-color" content="#f7f3eb">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://namans.me/">
+    <meta property="og:title" content="Naman Siddheshwar — Student, Researcher &amp; Builder">
+    <meta property="og:description" content="Student researcher, builder, and musician exploring computer science, robotics, physics, and music technology.">
+    <meta property="og:image" content="https://namans.me/assets/img/og-naman-portfolio-v2.png">
+    <meta property="og:image:width" content="1672">
+    <meta property="og:image:height" content="941">
+    <meta property="og:image:alt" content="Naman Siddheshwar — Student researcher, builder, and musician.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Naman Siddheshwar — Student, Researcher &amp; Builder">
+    <meta name="twitter:description" content="Student researcher, builder, and musician exploring computer science, robotics, physics, and music technology.">
+    <meta name="twitter:image" content="https://namans.me/assets/img/og-naman-portfolio-v2.png">
+    <title>Naman Siddheshwar — Student, Researcher &amp; Builder</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&family=Lato:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/landing.css">
 </head>
-<body>
-<header>
-    <h1>Naman Siddheshwar</h1>
-    <nav>
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="news.html">news</a>
-        <a href="updates.html">journal blogs</a>
-        <a href="opinions.html">opinions</a>
-        <a href="projects.html">projects/research</a>
-        <a href="videos.html">videos</a>
-        <a href="cv.html">cv</a>
-        <a href="contact.html">contact</a>
-    </nav>
-</header>
+<body class="page-home">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="shell header-inner">
+            <a class="wordmark" href="index.html" aria-label="Naman Siddheshwar, home">Naman Siddheshwar</a>
+            <nav class="primary-nav" aria-label="Primary navigation">
+                <a href="projects.html">Projects &amp; Research</a>
+                <a href="writing.html">Writing</a>
+                <a href="about.html">About</a>
+                <a href="cv.html">Résumé</a>
+                <a href="#connect">Contact</a>
+            </nav>
+        </div>
+    </header>
 
+    <main id="main-content">
+        <section class="hero shell" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow">Hello, I’m Naman.</p>
+                <h1 id="hero-title">Student researcher,<br>builder, and <span>musician.</span></h1>
+                <div class="ink-stroke" aria-hidden="true"></div>
+                <p class="hero-summary">I explore computation across science, engineering, and sound—building tools, asking questions, and turning ideas into impact.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="projects.html">Explore my work <span aria-hidden="true">→</span></a>
+                    <a class="button button-secondary" href="about.html">About me</a>
+                </div>
+                <dl class="hero-details" aria-label="At a glance">
+                    <div><dt>Based in</dt><dd>Silicon Valley</dd></div>
+                    <div><dt>Studying</dt><dd>CS, robotics &amp; science</dd></div>
+                </dl>
+            </div>
+            <figure class="hero-portrait">
+                <img src="assets/img/naman-editorial-hero-current-v2.png" alt="Editorial portrait of Naman Siddheshwar" width="1451" height="1084">
+                <figcaption><span class="status-dot" aria-hidden="true"></span>Currently building at the intersection of code, science, and music</figcaption>
+            </figure>
+        </section>
 
-<main>
-    <h2>News</h2>
-    <div class="tile-scroll" id="home-news-tiles"></div>
+        <section class="section shell" id="featured-work" aria-labelledby="work-title">
+            <div class="section-heading">
+                <div><p class="section-kicker">Selected projects</p><h2 id="work-title">Featured Work</h2></div>
+                <a class="text-link view-all-cta" href="projects.html">View all projects <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="work-grid">
+                <a class="project-card project-card-featured" href="sbreader_description.html">
+                    <div class="project-copy">
+                        <p class="card-label">Competition Prep · Learning Tools</p>
+                        <h3>STEAMCOACH</h3>
+                        <p>Adaptive practice for Science Bowl, Science Olympiad, F=ma, USNCO, math, and music—built around timed simulations and purpose-built question generation.</p>
+                        <span class="card-link">Explore STEAMCOACH <span aria-hidden="true">↗</span></span>
+                    </div>
+                    <div class="coach-preview">
+                        <div class="coach-preview-header"><span>Practice suite</span><strong aria-hidden="true">SC</strong></div>
+                        <ul aria-label="STEAMCOACH practice products">
+                            <li class="coach-product"><span><b aria-hidden="true">✓</b> Math Forge</span><small>Live</small></li>
+                            <li class="coach-product"><span><b aria-hidden="true">✓</b> SBReader</span><small>Live</small></li>
+                            <li class="coach-product"><span><b aria-hidden="true">✓</b> SciOly Help</span><small>Live</small></li>
+                            <li class="coach-product"><span><b aria-hidden="true">✓</b> USNCO · F=ma</span><small>Live</small></li>
+                            <li class="coach-product coach-product-planned"><span><b aria-hidden="true">○</b> Piano Coach</span><small>Planned</small></li>
+                        </ul>
+                    </div>
+                </a>
+                <a class="project-card project-card-music" href="music-recommendation-systems.html">
+                    <div class="project-copy">
+                        <p class="card-label">Machine Learning · Music Tech</p>
+                        <h3>Music Recommendation Systems</h3>
+                        <p>Learning from listening behavior and musical structure to recommend songs for real empathy concerts.</p>
+                        <span class="card-link">Read the research <span aria-hidden="true">↗</span></span>
+                    </div>
+                    <div class="waveform" aria-hidden="true">
+                        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                    </div>
+                </a>
+                <a class="project-card project-card-photo" href="esap.html">
+                    <img src="assets/img/esap-robotics-servo-keyboard-build.jpg" alt="Servo-actuated piano player prototype on a workbench">
+                    <div class="photo-overlay"></div>
+                    <div class="project-copy">
+                        <p class="card-label">Robotics · Embedded Systems</p>
+                        <h3>Robotic Piano Player</h3>
+                        <p>From voltage dividers and PWM to a fast, reliable servo-driven instrument.</p>
+                        <span class="card-link">See the build <span aria-hidden="true">↗</span></span>
+                    </div>
+                </a>
+            </div>
+            <div class="focus-strip" aria-label="Areas of focus">
+                <div class="focus-item"><span class="focus-icon" aria-hidden="true">&lt;/&gt;</span><p><strong>Building</strong><span>STEM learning tools</span></p></div>
+                <div class="focus-item"><span class="focus-icon" aria-hidden="true">△</span><p><strong>Studying</strong><span>AI, chemistry &amp; physics</span></p></div>
+                <div class="focus-item"><span class="focus-icon" aria-hidden="true">♫</span><p><strong>Composing</strong><span>Original piano works</span></p></div>
+            </div>
+        </section>
 
-    <h2>Projects &amp; Research</h2>
-    <div class="tile-scroll" id="home-project-research-tiles"></div>
+        <section class="section shell editorial-grid" id="writing" aria-labelledby="writing-title">
+            <div class="writing-column">
+                <div class="section-heading section-heading-compact">
+                    <div><p class="section-kicker">Field notes &amp; ideas</p><h2 id="writing-title">Writing</h2></div>
+                    <a class="text-link view-all-cta" href="writing.html">View all writing <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="writing-list">
+                    <a class="writing-card" href="music-recommendation-dsp.html">
+                        <p class="writing-meta">Music technology · May 2026</p>
+                        <h3>A New Side of Recommendation: Classical DSP</h3>
+                        <p>Building an explainable similarity system around melody, harmony, rhythm, and emotion.</p>
+                        <span>6 min read</span>
+                    </a>
+                    <a class="writing-card" href="on-noteflight-notation-softwares.html">
+                        <p class="writing-meta">Opinion · February 2026</p>
+                        <h3>On Noteflight and Notation Software</h3>
+                        <p>A comparison of notation tools through the lenses of UX, performance, and openness.</p>
+                        <span>5 min read</span>
+                    </a>
+                    <a class="writing-card writing-card-image" href="esap-robotics-piano-player-early-steps.html">
+                        <img src="assets/img/esap-robotics-servo-key-test.jpg" alt="Early servo keypress testing for a robotic piano player">
+                        <div><p class="writing-meta">Build log · July 2026</p><h3>Early Steps to Building a Piano Player</h3><span>7 min read</span></div>
+                    </a>
+                </div>
+            </div>
+            <aside class="updates-column" aria-labelledby="updates-title">
+                <div class="section-heading section-heading-compact">
+                    <div><p class="section-kicker">What’s new</p><h2 id="updates-title">Updates</h2></div>
+                    <a class="text-link" href="news.html">View all <span aria-hidden="true">→</span></a>
+                </div>
+                <ol class="updates-list">
+                    <li><span class="update-mark" aria-hidden="true">01</span><div><a href="esap-robotics-final-piano-player.html">Robotic piano player: final build</a><p>Wrapped up the ESAP project with faster, more reliable actuation.</p><time datetime="2026-08">August 2026</time></div></li>
+                    <li><span class="update-mark" aria-hidden="true">02</span><div><a href="music-recommendation-full-system.html">Recommendations meet real concerts</a><p>The music system is now informing song choices for empathy concerts.</p><time datetime="2026-05">May 2026</time></div></li>
+                    <li><span class="update-mark" aria-hidden="true">03</span><div><a href="cubesat-finalist.html">MIT CubeSat finalist &amp; Best Demo</a><p>Our team was selected as a finalist and recognized for its demo.</p><time datetime="2026-02">February 2026</time></div></li>
+                    <li><span class="update-mark" aria-hidden="true">04</span><div><a href="post-victoriamque.html">Post Victoriamque performed live</a><p>My original composition was performed by the SJ Youth Orchestra.</p><time datetime="2025-11">November 2025</time></div></li>
+                </ol>
+            </aside>
+        </section>
+    </main>
 
-    <h2>Opinions</h2>
-    <div class="tile-scroll" id="home-opinion-tiles"></div>
-
-    <h2>Journal Blogs</h2>
-    <div class="tile-scroll" id="home-update-tiles"></div>
-
-    <h2>Videos</h2>
-    <div class="tile-scroll" id="home-video-tiles"></div>
-</main>
-
-<footer>
-    <p>© 2025 Naman Siddheshwar</p>
-</footer>
-
-<script src="assets/js/main.js"></script>
+    <footer class="site-footer" id="connect">
+        <div class="shell footer-grid">
+            <div class="footer-monogram" aria-hidden="true">NS</div>
+            <div class="footer-about">
+                <p class="section-kicker">A little more</p><h2>About Me</h2>
+                <p>I’m a high school student passionate about using computation to understand complex systems—whether in the lab, in orbit, on a robotics bench, or through music.</p>
+                <a class="text-link" href="about.html">More about me <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="footer-contact">
+                <p class="section-kicker">Say hello</p><h2>Let’s Connect</h2>
+                <ul>
+                    <li><span>Email</span><a href="mailto:cruisebugati@gmail.com">cruisebugati@gmail.com</a></li>
+                    <li><span>GitHub</span><a href="https://github.com/namsysid">github.com/namsysid</a></li>
+                    <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/naman-siddheshwar-617a7039b/">Naman Siddheshwar</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="shell footer-bottom"><p>© 2026 Naman Siddheshwar</p><p>Curiosity, built into things.</p></div>
+    </footer>
 </body>
 </html>

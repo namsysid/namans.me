@@ -6,32 +6,40 @@
     <title>ESAP Robotics Final: Wrapping Up the Piano Player | Naman Siddheshwar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&family=Lato:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-<header>
-    <h1>Naman Siddheshwar</h1>
-    <nav>
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="news.html">news</a>
-        <a href="updates.html">journal blogs</a>
-        <a href="opinions.html">opinions</a>
-        <a href="projects.html">projects/research</a>
-        <a href="videos.html">videos</a>
-        <a href="cv.html">cv</a>
-        <a href="contact.html">contact</a>
-    </nav>
-</header>
+<body class="page-inner page-article">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="shell header-inner">
+            <a class="wordmark" href="index.html" aria-label="Naman Siddheshwar, home">Naman Siddheshwar</a>
+            <nav class="primary-nav" aria-label="Primary navigation">
+                <a href="projects.html">Projects &amp; Research</a>
+                <a href="writing.html">Writing</a>
+                <a href="about.html">About</a>
+                <a href="cv.html">Résumé</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-<main>
+<main id="main-content">
     <div class="news-article">
-        <div class="journal-navigation"><a class="journal-back-tile" href="esap-robotics-piano-player-early-steps.html"><span class="journal-next-arrow" aria-hidden="true">←</span><span><span class="journal-next-label">Previous journal blog</span><span class="journal-next-title">Early Steps to Building Piano Player</span></span></a><a class="journal-next-tile" href="updates.html"><span><span class="journal-next-label">Latest journal blog</span><span class="journal-next-title">Browse all journal blogs</span></span><span class="journal-next-arrow" aria-hidden="true">→</span></a></div>
+        <a class="folder-back-link" href="esap.html">← Back to ESAP</a>
+        <div class="journal-navigation"><a class="journal-back-tile" href="esap-robotics-piano-player-early-steps.html"><span class="journal-next-arrow" aria-hidden="true">←</span><span><span class="journal-next-label">Previous journal blog</span><span class="journal-next-title">Early Steps to Building Piano Player</span></span></a><a class="journal-next-tile" href="steamcoach-question-generation-models.html"><span><span class="journal-next-label">Next journal blog</span><span class="journal-next-title">On Models Used for My Question Generation System</span></span><span class="journal-next-arrow" aria-hidden="true">→</span></a></div>
         <div class="news-date">aug 2026</div>
         <h1>ESAP Robotics Final: Wrapping Up the Piano Player</h1>
 
         <img src="assets/img/esap-robotics-servo-keyboard-build.jpg" alt="Servo-actuated piano player prototype mounted above a keyboard" class="news-article-image">
+
+        <section class="featured-system-video" aria-labelledby="system-video-title">
+            <h2 id="system-video-title">Overview of System</h2>
+            <video controls preload="metadata" playsinline>
+                <source src="assets/videos/Overview of System.m4v" type="video/mp4">
+                Your browser could not play this video.
+            </video>
+        </section>
 
         <div class="news-article-content">
             <p>By the end of ESAP robotics, the piano player had moved from a set of actuator experiments into a much more complete system: servos mounted over keys, electronics drilled down more securely, timing logic rewritten around musical events, and a codebase tuned for speed. The final stretch was less about proving that a servo could press a key and more about making the whole machine respond fast enough and consistently enough to play real pieces.</p>
@@ -147,8 +155,24 @@
     </div>
 </main>
 
-<footer>
-    <p>© 2025 Naman Siddheshwar</p>
-</footer>
+    <footer class="site-footer inner-footer">
+        <div class="shell footer-grid">
+            <div class="footer-monogram" aria-hidden="true">NS</div>
+            <div class="footer-identity">
+                <p class="footer-name">Naman Siddheshwar</p>
+                <p>Student researcher, builder, and musician.</p>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="news.html">News</a>
+                <a href="updates.html">Journal</a>
+                <a href="videos.html">Videos</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+        <div class="shell footer-bottom">
+            <p>© 2026 Naman Siddheshwar</p>
+            <a href="index.html">Back to home <span aria-hidden="true">↑</span></a>
+        </div>
+    </footer>
 </body>
 </html>

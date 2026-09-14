@@ -6,47 +6,63 @@
     <title>Music Recommendation Systems | Naman Siddheshwar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&family=Lato:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-<header>
-    <h1>Naman Siddheshwar</h1>
-    <nav>
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="news.html">news</a>
-        <a href="updates.html">journal blogs</a>
-        <a href="opinions.html">opinions</a>
-        <a href="projects.html">projects/research</a>
-        <a href="videos.html">videos</a>
-        <a href="cv.html">cv</a>
-        <a href="contact.html">contact</a>
-    </nav>
-</header>
+<body class="page-inner page-article">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="shell header-inner">
+            <a class="wordmark" href="index.html" aria-label="Naman Siddheshwar, home">Naman Siddheshwar</a>
+            <nav class="primary-nav" aria-label="Primary navigation">
+                <a href="projects.html">Projects &amp; Research</a>
+                <a href="writing.html">Writing</a>
+                <a href="about.html">About</a>
+                <a href="cv.html">Résumé</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-<main>
+<main id="main-content">
     <div class="news-article">
+        <a class="folder-back-link" href="projects.html">← Back to Projects &amp; Research</a>
         <div class="news-date">apr 2026</div>
         <h1>Music Recommendation Systems</h1>
 
         <div class="news-article-content">
             <p>This project studies how to predict songs that geriatric patients are likely to sing along to during empathy concert performances, replacing manual trial-and-error selection with a data-driven ranking approach.</p>
-            <p>Related updates:</p>
-            <ul>
-                <li><a href="music-recommendation-full-system.html">Music Recommendation System Being Used for Actual Empathy Concerts</a></li>
-                <li><a href="music-recommendation-dsp-update.html">Music Recommendation Systems: Update on the Classical DSP System</a></li>
-                <li><a href="music-recommendation-dsp.html">Music Recommendation Systems: A New Side of Recommendation: Classical DSP System</a></li>
-                <li><a href="music-recommendation-introduction.html">Music Recommendation Systems: Introduction</a></li>
-                <li><a href="music-recommendation-pipeline.html">Music Recommendation Systems: Proposed Product and Early Steps</a></li>
-                <li><a href="music-recommendation-update.html">Music Recommendation Systems: Update on the Recommendation System</a></li>
-            </ul>
+            <h2>Project journal</h2>
+            <div class="folder-entry-list">
+                <a class="folder-entry" href="music-recommendation-full-system.html"><strong>Music Recommendation System Being Used for Actual Empathy Concerts</strong><span>How the completed system is informing song selection for live performances.</span></a>
+                <a class="folder-entry" href="music-recommendation-dsp-update.html"><strong>Update on the Classical DSP System</strong><span>Progress on signal features, matching, and the explainable recommendation pipeline.</span></a>
+                <a class="folder-entry" href="music-recommendation-dsp.html"><strong>A New Side of Recommendation: Classical DSP</strong><span>Exploring melody, harmony, rhythm, and emotion through audio signal processing.</span></a>
+                <a class="folder-entry" href="music-recommendation-introduction.html"><strong>Introduction to Music Recommendation Systems</strong><span>The project problem, intended audience, and early research direction.</span></a>
+                <a class="folder-entry" href="music-recommendation-pipeline.html"><strong>Proposed Product and Early Steps</strong><span>The first system architecture and approach to ranking candidate songs.</span></a>
+                <a class="folder-entry" href="music-recommendation-update.html"><strong>Recommendation System Update</strong><span>Iteration notes, evaluation work, and lessons from the developing model.</span></a>
+            </div>
         </div>
     </div>
 </main>
 
-<footer>
-    <p>© 2025 Naman Siddheshwar</p>
-</footer>
+    <footer class="site-footer inner-footer">
+        <div class="shell footer-grid">
+            <div class="footer-monogram" aria-hidden="true">NS</div>
+            <div class="footer-identity">
+                <p class="footer-name">Naman Siddheshwar</p>
+                <p>Student researcher, builder, and musician.</p>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="news.html">News</a>
+                <a href="updates.html">Journal</a>
+                <a href="videos.html">Videos</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+        <div class="shell footer-bottom">
+            <p>© 2026 Naman Siddheshwar</p>
+            <a href="index.html">Back to home <span aria-hidden="true">↑</span></a>
+        </div>
+    </footer>
 </body>
 </html>

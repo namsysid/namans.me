@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Introducing the teaching problem and visual concept behind the Sustain Pedal Visualizer.">
+    <title>Making Sustain Visible | Naman Siddheshwar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Libre+Baskerville:wght@400;700&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page-inner page-article">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header"><div class="shell header-inner"><a class="wordmark" href="index.html" aria-label="Naman Siddheshwar, home">Naman Siddheshwar</a><nav class="primary-nav" aria-label="Primary navigation"><a href="projects.html">Projects &amp; Research</a><a href="writing.html">Writing</a><a href="about.html">About</a><a href="cv.html">Résumé</a><a href="contact.html">Contact</a></nav></div></header>
+<main id="main-content"><div class="news-article">
+    <a class="folder-back-link" href="pedal-visualizer.html">← Back to Sustain Pedal Visualizer</a>
+    <div class="journal-navigation"><a class="journal-back-tile" href="updates.html"><span class="journal-next-arrow" aria-hidden="true">←</span><span><span class="journal-next-label">Journal blogs</span><span class="journal-next-title">Back to all blogs</span></span></a><a class="journal-next-tile" href="pedal-visualizer-acoustics.html"><span><span class="journal-next-label">Next in this project</span><span class="journal-next-title">From Piano Acoustics to a Real-Time Detector</span></span><span class="journal-next-arrow" aria-hidden="true">→</span></a></div>
+    <div class="news-date">jan 2026 · sustain pedal visualizer 01</div>
+    <h1>Making Sustain Visible</h1>
+    <div class="news-article-content">
+        <p>I am developing a real-time audio-to-visual tool that graphically represents piano sound to help students better understand the effects of the sustain pedal.</p>
+        <h2>The problem as it stands</h2>
+        <p>Helping students develop musical judgment, particularly in their use of the sustain pedal, remains one of the most elusive challenges in piano education.</p>
+        <p>Much of piano pedagogy for beginners focuses on concrete musical elements like pitch and rhythm, which students can relatively straightforwardly identify as “correct” or “incorrect” in practice. However, the technique of expert pianists demonstrates not just correct notes and rhythms, but more importantly an ability to obtain a greater variety of sounds and tone qualities from the instrument.</p>
+        <p>Dynamics and articulation are two domains in which students can explore a greater variety of sound. Staccato, legato, marcato, and sforzando involve different motions of the fingers, hands, and arms, and create distinct effects in the piano’s sound. Both can be difficult to master because they involve qualitative contrasts rather than quantitative certainties like pitch and rhythm.</p>
+        <p>One of the most difficult elements of tone for students to grasp is the damper pedal. It removes the dampers from the piano’s strings and allows them to resonate freely. This lets the pianist add varying degrees of resonance and depth to the instrument’s tone, and enhance dynamics and articulations by lifting and replacing the dampers.</p>
+        <p>To help students clear this hurdle faster, I am exploring a visual approach. Music is defined by the auditory sense, but I hypothesize that many piano students can benefit from a simple visualization of the audio emitted from the instrument.</p>
+        <h2>The visual concept</h2>
+        <p>The project takes microphone input and translates it into a screen with two major elements: colored circles and a colorable background.</p>
+        <h3>Colored circles</h3>
+        <ul><li>Each time a key or group of keys is pressed, a randomly colored circle appears.</li><li>The circle’s size is proportional to the volume of the keys: a louder chord creates a larger circle.</li><li>The circle shrinks over time with the remaining acoustic energy. As the energy decreases, the circles fade away.</li></ul>
+        <h3>A colorable background</h3>
+        <ul><li>The background begins white, while the circles contribute their colors to it.</li><li>Larger circles add more color, while the background continuously moves back toward white.</li><li>The effect of the pedal appears through the background’s murkiness: the more blurred the music becomes, the darker and more opaque the background grows.</li></ul>
+        <p>If a user plays sharply without pedal, the acoustic energy falls quickly. The circles fade rapidly and the background remains largely white. With continuously sustained pedal, the acoustic energy stays high, the circles remain large for longer, and the background grows progressively darker.</p>
+        <p>The eventual test is straightforward: compare how well students use the pedal when practicing with the visualizer against students practicing without it.</p>
+    </div>
+</div></main>
+    <footer class="site-footer inner-footer"><div class="shell footer-grid"><div class="footer-monogram" aria-hidden="true">NS</div><div class="footer-identity"><p class="footer-name">Naman Siddheshwar</p><p>Student researcher, builder, and musician.</p></div><nav class="footer-nav" aria-label="Footer navigation"><a href="news.html">News</a><a href="updates.html">Journal</a><a href="videos.html">Videos</a><a href="contact.html">Contact</a></nav></div><div class="shell footer-bottom"><p>© 2026 Naman Siddheshwar</p><a href="index.html">Back to home <span aria-hidden="true">↑</span></a></div></footer>
+</body>
+</html>

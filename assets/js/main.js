@@ -17,10 +17,18 @@ const projectsResearch = [
     {
         id: 'robotics',
         kind: 'Project / Research',
-        title: 'Robotics',
+        title: 'Robotics and Engineering',
         description: 'Robotics work across electronics, sensing, mechanisms, embedded systems, and competition engineering.',
         tileHref: 'robotics.html',
         activityIds: ['robotics']
+    },
+    {
+        id: 'steam-coach',
+        kind: 'Platform',
+        title: 'STEAMCOACH',
+        description: 'A growing collection of adaptive practice tools for Science Bowl, Science Olympiad, F=ma, USNCO, math, and music, supported by purpose-built question-generation pipelines.',
+        tileHref: 'sbreader_description.html',
+        activityIds: ['academic-competitions']
     },
     {
         id: 'music-recommendation-systems',
@@ -29,14 +37,6 @@ const projectsResearch = [
         description: 'I am building recommendation approaches that combine listening behavior, contextual signals, and music structure to produce better personalized suggestions.',
         tileHref: 'music-recommendation-systems.html',
         activityIds: ['music', 'music-technology']
-    },
-    {
-        id: 'sbreader',
-        kind: 'Project',
-        title: 'SBReader',
-        description: 'SBReader is an app that mimics live science bowl competitions, with scoring, multiple choice support, timers, and an AI question judge. It also contains AI study assists.',
-        tileHref: 'sbreader_description.html',
-        activityIds: []
     },
     {
         id: 'aqg-rag-solution-skeletons',
@@ -49,7 +49,7 @@ const projectsResearch = [
     {
         id: 'pedal-visualizer',
         kind: 'Research',
-        title: 'Pedal Visualizer',
+        title: 'Sustain Pedal Visualizer',
         description: 'Helping students develop musical judgment, especially in sustain pedal technique, through clear visual feedback.',
         tileHref: 'pedal-visualizer.html',
         activityIds: ['music', 'music-technology']
@@ -81,6 +81,14 @@ const projectsResearch = [
 ];
 
 const contentEntries = [
+    {
+        categoryId: 'updates',
+        date: 'Sep 2026',
+        title: 'On Models Used for My Question Generation System',
+        content: 'While building the F=ma question-generation system for STEAMCOACH, I compared local open-weight models with GPT-family models. The local models often became trapped in extended self-critique, while GPT-5-mini produced questions close in quality to GPT-5 at a lower cost.',
+        href: 'steamcoach-question-generation-models.html',
+        projectId: 'steam-coach'
+    },
     {
         categoryId: 'updates',
         date: 'Aug 2026',
@@ -135,7 +143,7 @@ const contentEntries = [
         title: 'SBReader has Experimental AI Opponent',
         content: 'SBReader now has an AI opponent in beginner, intermediate, and advanced modes for self-practice scrims.',
         href: 'sbreader-ai-opponent.html',
-        projectId: 'sbreader'
+        projectId: 'steam-coach'
     },
     {
         categoryId: 'news',
@@ -228,10 +236,35 @@ const contentEntries = [
     {
         categoryId: 'updates',
         date: 'Jan 2026',
-        title: 'Pedal Visualizer Iteration for Studio Testing',
-        content: 'I shipped another Pedal Visualizer iteration focused on cleaner sustain transitions and clearer timing cues for student feedback.',
-        href: 'pedal-visualizer.html',
+        title: 'Sustain Pedal Visualizer: Designing the Student Study',
+        content: 'The proposed evaluation compares control and experimental groups across three student stages, using a shared performance task and a descriptive rubric for underpedaling, overpedaling, score-aligned playing, and musically appropriate pedal choices.',
+        href: 'pedal-visualizer-methodology.html',
         projectId: 'pedal-visualizer'
+    },
+    {
+        categoryId: 'updates',
+        date: 'Jan 2026',
+        title: 'Sustain Pedal Visualizer: From Piano Acoustics to a Real-Time Detector',
+        content: 'I examine how sympathetic resonance, RMS, interharmonic energy, and FFT analysis can support a lightweight, real-time estimate of sustain-pedal use—and why plain RMS and transcription models fall short.',
+        href: 'pedal-visualizer-acoustics.html',
+        projectId: 'pedal-visualizer'
+    },
+    {
+        categoryId: 'updates',
+        date: 'Jan 2026',
+        title: 'Sustain Pedal Visualizer: Making Sustain Visible',
+        content: 'The project translates piano sound into colored circles and a changing background so students can see how volume, resonance, and continuous pedaling affect musical clarity.',
+        href: 'pedal-visualizer-introduction.html',
+        projectId: 'pedal-visualizer'
+    },
+    {
+        categoryId: 'opinions',
+        date: 'Sep 2026',
+        title: 'On Models Used for My Question Generation System',
+        content: 'My experience comparing open-weight and GPT-family models for STEAMCOACH suggests that model size is not the only constraint: a smaller model’s tendency to second-guess promising ideas can matter just as much as raw capability.',
+        tileDescription: 'What I learned comparing local open-weight models and GPT-family models for STEAMCOACH’s F=ma question-generation system.',
+        href: 'steamcoach-question-generation-models.html',
+        projectId: 'steam-coach'
     },
     {
         categoryId: 'opinions',

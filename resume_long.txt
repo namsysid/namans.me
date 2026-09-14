@@ -1,0 +1,118 @@
+Naman Siddheshwar
+San Jose, CA | cruisebugati@gmail.com | 408-666-6083 | namans.me | https://www.steam-coach.org/ 
+
+EDUCATION
+
+
+Basis Independent Silicon Valley - San Jose, CA 				Expected: May 2027
+ GPA: 4.0 (Unweighted) | 4.8 (Weighted) 
+
+Relevant Advanced Coursework:
+AP - all score of 5
+ AP Physics C (Mechanics & E&M),Stanford Pre-Collegiate: Light and Heat
+AP Chemistry, AP Calculus BC, AP Statistics, AP Computer Science A
+Post-AP: Multivariable Calculus, Linear Algebra, Differential Equations,  Modern Physics, BioChemistry
+
+ PSAT: 1490/1520 (760/760 Math, 730/760 English)
+SAT: 1590/1600 (790/800 Math, 800/800 English)
+
+TECHNICAL & RESEARCH EXPERIENCE
+
+
+
+STEAMCoach 									2023 - Present
+Founder & Lead Developer.
+
+Founded an AI-powered STEM practice platform that grew from a Science Bowl simulator with text-to-speech, buzzer practice, and analytics into tools used by students, educational nonprofits, and local PTAs.
+Designed a solution-centric Automatic Question Generation pipeline for complex STEM/Olympiad problems; submitted research paper to WAIE.
+Extended the platform through Math, For Real by developing Math Forge for targeted practice and learner-performance tracking.
+
+Arrcus Inc. 										Summer 2026
+Software Engineering Intern
+
+Developed CLI Composer, an MCP-based agentic pipeline that generates CLI from YANG models 
+Worked in a shared production codebase with virtual environments, deployment workflows, and production networking software 
+
+Independent Music Technology / ML 						2024 - Present      Research & Developer
+Developing a recommender system for music selection tailored to elderly users and cognitive engagement using Music 
+Exploring the Music Embedding Models and the field of Music Information Retrieval for song similarity
+Building DSP-based approaches for benchmarks of recommendation models
+Developed a real-time sustain-pedal visualizer using microphone audio and spectral features such as harmonic decay, resonance, and spectral flux to support piano pedagogy. 
+Algoverse 										Summer 2026	AI Researcher
+Investigated LLM reasoning; designed experiments and an evaluation pipeline
+coauthored a paper and submitted to a NeurIPS workshop.
+
+
+ENGINEERING & ROBOTICS
+
+
+Programming Lead – VEX Robotics Team					2023 - Present
+Developed C++ autonomous routines using PID control and motion profiling for precise chassis positioning and game-object manipulation. Included integrated inputs from sensors.
+Team qualified for VEX U.S. Open, representing top competitive robotics talent nationally.
+
+
+MIT Beaver Works Summer Institute – Build a CubeSat Challenge	2025 - Present
+Finalist (5th out of ~80 teams)
+Worked on developing lunar dust imaging algorithms
+Evaluated sensor limitations, signal noise, and data interpretation challenges
+Analyzed tradeoffs between system design parameters and scientific objectives
+Contributed to collaborative mission planning and system-level design decisions
+Penn Engineering Summer Academy (ESAP) - Robotics			Summer 2026	Selected Participant
+Built an ESP32-controlled robotic piano using solenoids and servos, integrating software, electronics, and mechanics for a robotic-orchestra finale 
+
+
+SKILLS
+
+Programming: Python, C++, Java, JavaScript
+Frameworks/Tools: Node.js, MongoDB, NumPy
+Systems: Control systems, sensor integration, real-time debugging
+Machine Learning / Data: Feature extraction, model prototyping, data analysis
+Mathematics: Linear Algebra, Multivariable Calculus
+
+
+LEADERSHIP, TEACHING & SERVICE
+
+Basis Independent Silicon Valley Science Bowl 					2024 - Present
+ MS President/Mentor; HS Chemistry Lead
+Lead weekly middle-school practices, build prep tools, and train students in STEM content and buzzer strategy; mentored team to 3rd at regionals 
+Advised You Be the Chemist Teams; one team made it to nationals
+Serve as High School Team A Chemistry Lead.
+ Oclef 											2025 - Present Junior Piano Instructor
+Selected through interview process for paid teaching role 
+Teach younger pianists, and tailor  instruction to individual learning styles and progress
+Help prepare students for Certificate of Merit performance and music-theory exams 
+Lead Kaizen initiatives focused on improving teaching, practice, and studio processes 
+Developed structured methods to explain musical concepts (timing, phrasing, pedal usage), improving student comprehension
+Memory-care / Empathy Concerts						2023 - Present Volunteer Pianist
+Perform for memory-care residents
+observations from these concerts motivated an ML music-recommendation project centered on familiarity and engagement.
+Peer Tutor for STEM Subjects							2024 - Present
+Tutor peers and juniors in math (AP Calculus AB) and chemistry (AP/honors Chemistry);
+ focus on first-principles explanations
+MIT Build a CubeSat Club								2026 - present Founder and President
+Founded and lead the school CubeSat club, mentoring peers in satellite design and hands-on systems work 
+
+MUSIC & COMPOSITION
+
+
+Composer & Pianist								2014 - present
+Composed and conducted original piano quartet performance with San Jose Youth Symphony Orchestra
+3rd Place – State-Level Music Composition Competition
+Released 4 albums on Apple, Youtube, Spotify and Google music.
+Carnatic violinist; perform at community and senior care events
+
+
+SELECTED HONORS & DISTINCTIONS
+
+• National Merit Semifinalist
+• AIME Qualifier
+• USACO Silver (C++)
+• ACSL Finalist
+• Berkeley Chemistry Tournament Medalist
+• California State Winner, You Be The Chemist
+• VEX U.S. Open Division Finalist
+• College Board National Recognition Program
+• 3 x AP Scholar with Distinction
+• National Latin Exam Medalist -
+ 2 x Gold, 2 x Silver
+• 3rd Place, State Music Composition Contest

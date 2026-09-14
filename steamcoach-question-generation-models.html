@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comparing local open-weight and GPT-family models for STEAMCOACH's F=ma question-generation system.">
+    <title>On Models Used for My Question Generation System | Naman Siddheshwar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Libre+Baskerville:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page-inner page-article">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="shell header-inner">
+            <a class="wordmark" href="index.html" aria-label="Naman Siddheshwar, home">Naman Siddheshwar</a>
+            <nav class="primary-nav" aria-label="Primary navigation">
+                <a href="projects.html">Projects &amp; Research</a>
+                <a href="writing.html">Writing</a>
+                <a href="about.html">About</a>
+                <a href="cv.html">Résumé</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+<main id="main-content">
+    <div class="news-article">
+        <a class="folder-back-link" href="sbreader_description.html">← Back to STEAMCOACH</a>
+        <div class="journal-navigation"><a class="journal-back-tile" href="esap-robotics-final-piano-player.html"><span class="journal-next-arrow" aria-hidden="true">←</span><span><span class="journal-next-label">Previous journal blog</span><span class="journal-next-title">Wrapping Up the Piano Player</span></span></a><a class="journal-next-tile" href="updates.html"><span><span class="journal-next-label">Latest journal blog</span><span class="journal-next-title">Browse all journal blogs</span></span><span class="journal-next-arrow" aria-hidden="true">→</span></a></div>
+        <div class="news-date">Sep 2026 · Journal &amp; Opinion · STEAMCOACH</div>
+        <h1>On Models Used for My Question Generation System</h1>
+
+        <div class="news-article-content">
+            <p>As I’m building out STEAMCOACH, I am figuring out which models I should use to run my question-generation system—specifically, for F=ma practice problems.</p>
+
+            <p>To start, I decided to use open-weight models running on my local PC to save costs. I tried Qwen 3 14B, Phi-4-reasoning-plus, and GPT-OSS. It was a struggle to find models that were good enough for the task while also fitting within my PC’s VRAM and memory. I was doubtful of how these smaller models would compare with frontier lab models, but based on my past experiences with research in automatic question generation and scientific agents, Qwen and Phi perform just fine—close to the level of GPT-5.</p>
+
+            <p>I started running the system with Qwen, but found that the quality was not great and generation took forever. I figured the 14B model might be struggling to operate within my PC’s VRAM, even with FreeToken. I prepared Phi-4 in Ollama and, out of curiosity, asked it to generate a complex F=ma question while I closely monitored its reasoning traces.</p>
+
+            <p>I saw that it was hitting upon some interesting question ideas, but it always second-guessed itself. It never exited. With every new idea, it would deliberate and might even continue fleshing out the problem, but sooner or later it would always decide that the idea would not work.</p>
+
+            <p>That was why the open-weight models were not functioning satisfactorily. Even when instructed not to second-guess themselves and to output the first idea they had, they still second-guessed themselves every time.</p>
+
+            <p>I reluctantly made the switch to GPT-family models. Here, there was a plethora of options. I compared GPT-4, o4-mini, GPT-5-mini, and the fully fledged GPT-5. I found a large difference between the first two and the second two. Interestingly, though, for this use case there was not much difference at all between GPT-5 and its smaller version in the quality of the questions they produced.</p>
+
+            <p>I am still trying to figure out why this is, but for now, I’ll take the similar performance at a lower cost.</p>
+        </div>
+    </div>
+</main>
+
+    <footer class="site-footer inner-footer">
+        <div class="shell footer-grid">
+            <div class="footer-monogram" aria-hidden="true">NS</div>
+            <div class="footer-identity">
+                <p class="footer-name">Naman Siddheshwar</p>
+                <p>Student researcher, builder, and musician.</p>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="news.html">News</a>
+                <a href="updates.html">Journal</a>
+                <a href="videos.html">Videos</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+        <div class="shell footer-bottom">
+            <p>© 2026 Naman Siddheshwar</p>
+            <a href="index.html">Back to home <span aria-hidden="true">↑</span></a>
+        </div>
+    </footer>
+</body>
+</html>
