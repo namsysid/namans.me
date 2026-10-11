@@ -83,6 +83,14 @@ const projectsResearch = [
 const contentEntries = [
     {
         categoryId: 'updates',
+        date: 'Oct 2026',
+        title: 'On X-Drives, PID, and HoloLib',
+        content: 'After joining 12790X Entropic Alpacas, I expected holonomic autonomous control to be much harder than differential-drive curves. HoloLib revealed a cleaner model: three feedback loops, one coordinate transform, and a wheel-mixing matrix.',
+        href: 'x-drive-holonomic-control.html',
+        projectId: 'robotics'
+    },
+    {
+        categoryId: 'updates',
         date: 'Sep 2026',
         title: 'On Models Used for My Question Generation System',
         content: 'While building the F=ma question-generation system for STEAMCOACH, I compared local open-weight models with GPT-family models. The local models often became trapped in extended self-critique, while GPT-5-mini produced questions close in quality to GPT-5 at a lower cost.',
@@ -256,6 +264,15 @@ const contentEntries = [
         content: 'The project translates piano sound into colored circles and a changing background so students can see how volume, resonance, and continuous pedaling affect musical clarity.',
         href: 'pedal-visualizer-introduction.html',
         projectId: 'pedal-visualizer'
+    },
+    {
+        categoryId: 'opinions',
+        date: 'Oct 2026',
+        title: 'On X-Drives, PID, and HoloLib',
+        content: 'I expected an X-drive to demand a much stranger control model. Instead, separating x, y, and heading made the logic more direct—and showed how removing a mechanical constraint can simplify the software model.',
+        tileDescription: 'A practical discovery about PID loops, coordinate frames, and the unexpectedly elegant kinematics behind holonomic motion.',
+        href: 'x-drive-holonomic-control.html',
+        projectId: 'robotics'
     },
     {
         categoryId: 'opinions',

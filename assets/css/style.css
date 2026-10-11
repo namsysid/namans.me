@@ -134,6 +134,7 @@ main {
 
 .page-article main { width: min(920px, calc(100% - 48px)); }
 .page-static main { width: min(980px, calc(100% - 48px)); }
+.page-awards main { width: min(1120px, calc(100% - 48px)); }
 
 h1,
 h2,
@@ -210,6 +211,66 @@ main a:hover { text-decoration-color: currentColor; }
     color: var(--ink-soft);
     font-size: 1rem;
     line-height: 1.7;
+}
+
+.awards-intro { margin-bottom: 52px; }
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    align-items: start;
+    gap: 48px 32px;
+    margin-bottom: 24px;
+}
+
+.award-card {
+    width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-rows: auto auto;
+    margin: 0;
+}
+
+.award-image-frame {
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 4 / 3;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.award-image-frame img {
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    display: block;
+}
+
+.award-image-frame-portrait {
+    width: 75%;
+    aspect-ratio: 3 / 4;
+    justify-self: center;
+}
+
+.award-card figcaption {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 12px 0 0;
+    color: var(--ink-soft);
+    font-size: 0.72rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    text-align: center;
+}
+
+.award-card figcaption strong {
+    color: var(--ink);
+    font-size: 0.88rem;
+    font-weight: 500;
 }
 
 .writing-hub-grid {
@@ -1097,7 +1158,8 @@ a.product-suite-card:focus-visible {
     .shell,
     main,
     .page-article main,
-    .page-static main { width: min(100% - 34px, 640px); }
+    .page-static main,
+    .page-awards main { width: min(100% - 34px, 640px); }
 
     .header-inner {
         min-height: auto;
@@ -1134,7 +1196,6 @@ a.product-suite-card:focus-visible {
 
     .about-content { grid-template-columns: 1fr; }
     .about-photo { max-width: 560px; }
-
     .footer-grid { grid-template-columns: auto 1fr; }
     .footer-nav { grid-column: 2; flex-wrap: wrap; gap: 12px 20px; }
 }
@@ -1150,6 +1211,8 @@ a.product-suite-card:focus-visible {
 
     .tile-grid { grid-template-columns: 1fr; }
     .compact-tile { min-height: 280px; }
+
+    .awards-grid { gap: 38px; }
 
     .news-item { grid-template-columns: 1fr; gap: 0; padding: 24px 0; }
     .news-item .news-date,

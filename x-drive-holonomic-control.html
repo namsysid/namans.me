@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Notes on X-drives, PID control, differential-drive curves, and HoloLib for VEX Robotics.">
+    <title>On X-Drives, PID, and HoloLib | Naman Siddheshwar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Libre+Baskerville:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+</head>
+<body class="page-inner page-article">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="shell header-inner">
+            <a class="wordmark" href="index.html" aria-label="Naman Siddheshwar, home">Naman Siddheshwar</a>
+            <nav class="primary-nav" aria-label="Primary navigation">
+                <a href="projects.html">Projects &amp; Research</a>
+                <a href="writing.html">Writing</a>
+                <a href="awards.html">Awards</a>
+                <a href="about.html">About</a>
+                <a href="cv.html">Résumé</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <article class="news-article">
+            <a class="folder-back-link" href="vex-robotics.html">← Back to VEX Robotics</a>
+            <div class="journal-navigation">
+                <a class="journal-back-tile" href="steamcoach-question-generation-models.html">
+                    <span class="journal-next-arrow" aria-hidden="true">←</span>
+                    <span><span class="journal-next-label">Previous journal blog</span><span class="journal-next-title">On Models Used for My Question Generation System</span></span>
+                </a>
+                <a class="journal-next-tile" href="opinions.html">
+                    <span><span class="journal-next-label">More writing</span><span class="journal-next-title">Browse opinion essays</span></span>
+                    <span class="journal-next-arrow" aria-hidden="true">→</span>
+                </a>
+            </div>
+            <div class="news-date">Oct 2026 · Journal &amp; Opinion · VEX Robotics</div>
+            <h1>On X-Drives, PID, and HoloLib</h1>
+
+            <div class="news-article-content">
+                <p>I have joined the 2026–2027 VEX Robotics season with <strong>12790X Entropic Alpacas</strong>. For this season, we decided to adopt an X-drive configuration, which allows the robot to move in any direction without first rotating to face that direction. We chose it because this year’s game, <a href="https://www.vexrobotics.com/v5/competition/vrc-current-game" target="_blank" rel="noopener noreferrer">Override</a>, requires a lot of rotation and dexterity while picking up and stacking Pins and Cups.</p>
+
+                <p>Working with an X-drive was new for most of us. On the software side, our goal was to use libraries to control the robot more reliably, especially during autonomous. I quickly discovered that the standard libraries we knew—LemLib, JAR-Template, and EZ-Template—did not have the X-drive support we needed for PID control and curved paths. While searching through GitHub repositories, we found <a href="https://github.com/calhighrobotics/HoloLib" target="_blank" rel="noopener noreferrer">HoloLib</a>, which runs on PROS.</p>
+
+                <p>HoloLib turned out to be very useful. We can create quick and efficient routes while using the full movement capabilities of the X-drive. The robot can rotate while moving in a direction that is not parallel to its heading, removing the need for some time-consuming curves. It also resolved our biggest concern: spending weeks working out how to build several PID loops that run in parallel.</p>
+
+                <p>I wanted to understand how HoloLib does this, and whether it is really that different from controlling a differential drive.</p>
+
+                <h2 id="pid-loops">PID Loops</h2>
+
+                <p>A PID—proportional, integral, derivative—controller is a negative-feedback loop. It uses the current position, the target position, and the difference between them to calculate a motor command. In one dimension, it can be written as</p>
+
+                \[
+                u(t)=K_P e(t)+K_I\int_0^t e(\tau)\,d\tau+K_D\frac{de(t)}{dt}.
+                \]
+
+                <p>Here, \(e(t)=x_{\mathrm{target}}-x_{\mathrm{current}}(t)\), and \(K_P\), \(K_I\), and \(K_D\) are constants that have to be tuned for the actual robot.</p>
+
+                <p>The proportional term responds to the current error, the derivative term damps rapid changes and helps limit overshoot, and the integral term accumulates error over time. The integral term can correct a small error that persists after the proportional and derivative terms have become too small, although too much integral action can cause windup.</p>
+
+                <p>The world is not one-dimensional, of course. Most VEX path-following systems work with the robot’s pose \((x,y,\theta)\).</p>
+
+                <h2 id="differential-drive">Parallel PID Loops (Curves): Differential Drive</h2>
+
+                <p>A standard tank or differential drive has two controllable motions: forward velocity \(v\) and angular velocity \(\omega\). Each can have a separate PID loop running in parallel.</p>
+
+                <p>When working with \((x,y,\theta)\), the two-dimensional position error must first be converted into a linear error that the drivetrain can use. Let</p>
+
+                \[
+                \mathbf e_p=
+                \begin{bmatrix}
+                x_t-x_c\\
+                y_t-y_c
+                \end{bmatrix}.
+                \]
+
+                <p>Projecting this vector onto the robot’s forward unit vector gives</p>
+
+                \[
+                e_{\mathrm{forward}}
+                =e_x\cos\theta+e_y\sin\theta.
+                \]
+
+                <p>This scalar can be used in the PID loop for \(v\). The rotational loop uses the wrapped angular error</p>
+
+                \[
+                e_\theta=\operatorname{wrap}(\theta_t-\theta_c)
+                \]
+
+                <p>to calculate \(\omega\). The left and right wheel speeds are then linear combinations of \(v\) and \(\omega\):</p>
+
+                \[
+                \omega_L=\frac{1}{r}\left(v-\frac{B}{2}\omega\right),
+                \qquad
+                \omega_R=\frac{1}{r}\left(v+\frac{B}{2}\omega\right),
+                \]
+
+                <p>where \(B\) is the drivetrain width and \(r\) is the wheel radius. A differential drive cannot directly correct sideways error, so it must rotate until its forward direction points toward the desired motion. This is what produces a curve.</p>
+
+                <h2 id="x-drive">Parallel PID Loops (Curves): X-Drive</h2>
+
+                <p>An X-drive has three controllable motions: sideways velocity \(v_x\), forward velocity \(v_y\), and angular velocity \(\omega\). This means that separate PID loops can be used for \(x\), \(y\), and \(\theta\).</p>
+
+                <p>If the translational command is calculated in field coordinates, it first has to be rotated into the robot’s coordinate frame:</p>
+
+                \[
+                \begin{bmatrix}
+                v_x^{(r)}\\
+                v_y^{(r)}
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \cos\theta &amp; \sin\theta\\
+                -\sin\theta &amp; \cos\theta
+                \end{bmatrix}
+                \begin{bmatrix}
+                v_x^{(f)}\\
+                v_y^{(f)}
+                \end{bmatrix}.
+                \]
+
+                <p>For a 45° X-drive, the wheel commands can then be found through linear superposition:</p>
+
+                \[
+                \begin{aligned}
+                \omega_1 &amp;= \frac{1}{r}\left(v_x^{(r)}+v_y^{(r)}+R\omega\right),\\
+                \omega_2 &amp;= \frac{1}{r}\left(-v_x^{(r)}+v_y^{(r)}-R\omega\right),\\
+                \omega_3 &amp;= \frac{1}{r}\left(v_x^{(r)}+v_y^{(r)}-R\omega\right),\\
+                \omega_4 &amp;= \frac{1}{r}\left(-v_x^{(r)}+v_y^{(r)}+R\omega\right).
+                \end{aligned}
+                \]
+
+                <p>Here, \(R\) is the effective distance from the robot’s center to each wheel’s contact direction. The signs depend on the wheel numbering, motor orientation, and coordinate convention, but the principle is the same: each wheel receives a combination of sideways motion, forward motion, and rotation.</p>
+
+                <p>The robot now runs three motion loops instead of two, but the basic idea is more direct than I expected. There is an error and a commanded velocity for each degree of freedom, followed by a coordinate transformation and a wheel mixer. HoloLib handles these calculations along with the other parts of autonomous control.</p>
+
+                <p>So, although the X-drive is mechanically more flexible, its core control model is not necessarily more complicated. In some ways, it is simpler because the software can treat the \(x\), \(y\), and heading errors independently.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer inner-footer">
+        <div class="shell footer-grid">
+            <div class="footer-monogram" aria-hidden="true">NS</div>
+            <div class="footer-identity">
+                <p class="footer-name">Naman Siddheshwar</p>
+                <p>Student researcher, builder, and musician.</p>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="news.html">News</a>
+                <a href="updates.html">Journal</a>
+                <a href="videos.html">Videos</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+        <div class="shell footer-bottom">
+            <p>© 2026 Naman Siddheshwar</p>
+            <a href="index.html">Back to home <span aria-hidden="true">↑</span></a>
+        </div>
+    </footer>
+</body>
+</html>
