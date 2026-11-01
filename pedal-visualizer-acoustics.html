@@ -32,10 +32,30 @@
         <h2>Prototype two: interharmonic RMS</h2>
         <p>The current approach monitors energy between piano notes. For example, if A is 440 Hz and B is 493.88 Hz, the program might inspect a band from roughly 450 to 483 Hz. I am testing whether this separates a sparse, heavily pedaled passage from a dense, unpedaled one.</p>
         <p>The approach is promising because it is closer to a direct pedal detector than plain RMS, though it remains a deliberately lightweight approximation. The next step is to test whether this signal is reliable enough to support students in practice.</p>
+        <h2>Dry and sustained-pedal simulations</h2>
+        <p>These synthetic tests run through the same detector and canvas used by the live visualizer. The dry signal never activates pedal evidence, while the sustained, harmonically richer signal reaches the full pedal state after the detector’s intentional two-second hysteresis. They validate the software path, but real-piano testing is still needed to account for room acoustics, microphones, and background noise.</p>
+        <div class="video-grid article-video-grid pedal-demo-grid">
+            <article class="video-card">
+                <video controls preload="metadata" playsinline poster="assets/img/pedal-visualizer/dry.png" aria-label="Dry piano signal simulation in the Pedal Visualizer">
+                    <source src="assets/videos/pedal-visualizer/dry.mp4" type="video/mp4">
+                    Your browser could not play this video.
+                </video>
+                <h3 class="video-card-title">Dry signal</h3>
+                <p class="video-card-meta">Pedal evidence remains off; circles stay discrete against a neutral background.</p>
+            </article>
+            <article class="video-card">
+                <video controls preload="metadata" playsinline poster="assets/img/pedal-visualizer/pedal.png" aria-label="Sustained-pedal signal simulation in the Pedal Visualizer">
+                    <source src="assets/videos/pedal-visualizer/pedal.mp4" type="video/mp4">
+                    Your browser could not play this video.
+                </video>
+                <h3 class="video-card-title">Sustained-pedal signal</h3>
+                <p class="video-card-meta">Pedal evidence activates; accumulated resonance darkens the background and prompts release.</p>
+            </article>
+        </div>
         <h2>Terms</h2>
         <dl><dt><strong>RMS</strong></dt><dd>The square root of the mean of a set of squared values, used to describe the effective power of a signal.</dd><dt><strong>Interharmonic energy</strong></dt><dd>The power at frequencies that are not integer multiples of the fundamental frequencies in a system.</dd><dt><strong>FFT</strong></dt><dd>An algorithm that converts a signal from the time domain into a representation of its component frequencies.</dd><dt><strong>Acoustic beating</strong></dt><dd>A rhythmic rise and fall in amplitude caused by two sound waves with slightly different frequencies.</dd></dl>
     </div>
 </div></main>
-    <footer class="site-footer inner-footer"><div class="shell footer-grid"><div class="footer-monogram" aria-hidden="true">NS</div><div class="footer-identity"><p class="footer-name">Naman Siddheshwar</p><p>Student researcher, builder, and musician.</p></div><nav class="footer-nav" aria-label="Footer navigation"><a href="news.html">News</a><a href="updates.html">Journal</a><a href="videos.html">Videos</a><a href="contact.html">Contact</a></nav></div><div class="shell footer-bottom"><p>© 2026 Naman Siddheshwar</p><a href="index.html">Back to home <span aria-hidden="true">↑</span></a></div></footer>
+    <footer class="site-footer inner-footer"><div class="shell footer-grid"><div class="footer-monogram" aria-hidden="true">NS</div><div class="footer-identity"><p class="footer-name">Naman Siddheshwar</p><p>Student researcher, builder, and musician.</p></div><nav class="footer-nav" aria-label="Footer navigation"><a href="news.html">News</a><a href="writing.html?section=journal">Journal</a><a href="videos.html">Videos</a><a href="contact.html">Contact</a></nav></div><div class="shell footer-bottom"><p>© 2026 Naman Siddheshwar</p><a href="index.html">Back to home <span aria-hidden="true">↑</span></a></div></footer>
 </body>
 </html>

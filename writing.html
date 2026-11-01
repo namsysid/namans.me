@@ -30,23 +30,23 @@
         <a class="folder-back-link" href="index.html">← Back to home</a>
         <p class="page-kicker">Notes &amp; perspective</p>
         <h1>Writing</h1>
-        <p class="page-intro">Two collections: a working journal of projects and research, and longer-form opinions about technology, music, and learning.</p>
+        <p class="page-intro">Project journals and opinion essays, collected in one place.</p>
 
-        <div class="writing-hub-grid">
-            <a class="writing-hub-card" href="updates.html">
-                <span class="writing-hub-number" aria-hidden="true">01</span>
-                <p class="writing-hub-label">Build logs &amp; research notes</p>
-                <h2>Journal</h2>
-                <p>Experiments, project milestones, discoveries, and notes from work in progress.</p>
-                <span class="writing-hub-link">Browse the journal <b aria-hidden="true">→</b></span>
-            </a>
-            <a class="writing-hub-card writing-hub-card-blue" href="opinions.html">
-                <span class="writing-hub-number" aria-hidden="true">02</span>
-                <p class="writing-hub-label">Essays &amp; perspective</p>
-                <h2>Opinions</h2>
-                <p>Longer thoughts on the tools, systems, and ideas shaping technology and music.</p>
-                <span class="writing-hub-link">Read the essays <b aria-hidden="true">→</b></span>
-            </a>
+        <div class="writing-browser">
+            <aside class="writing-sidebar">
+                <p>Sections</p>
+                <nav aria-label="Writing sections">
+                    <a href="writing.html?section=journal" data-writing-section="journal">Journal</a>
+                    <a href="writing.html?section=opinions" data-writing-section="opinions">Opinion</a>
+                </nav>
+            </aside>
+            <section class="writing-browser-content" aria-labelledby="writing-section-title">
+                <div class="writing-section-heading">
+                    <h2 id="writing-section-title">Journal</h2>
+                    <p id="writing-section-description">Build logs, research notes, milestones, and work in progress.</p>
+                </div>
+                <div id="writing-list"></div>
+            </section>
         </div>
     </main>
 
@@ -55,10 +55,11 @@
             <div class="footer-monogram" aria-hidden="true">NS</div>
             <div class="footer-identity"><p class="footer-name">Naman Siddheshwar</p><p>Student researcher, builder, and musician.</p></div>
             <nav class="footer-nav" aria-label="Footer navigation">
-                <a href="news.html">News</a><a href="updates.html">Journal</a><a href="videos.html">Videos</a><a href="contact.html">Contact</a>
+                <a href="news.html">News</a><a href="writing.html?section=journal">Journal</a><a href="videos.html">Videos</a><a href="contact.html">Contact</a>
             </nav>
         </div>
         <div class="shell footer-bottom"><p>© 2026 Naman Siddheshwar</p><a href="index.html">Back to home <span aria-hidden="true">↑</span></a></div>
     </footer>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

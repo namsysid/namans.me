@@ -85,7 +85,7 @@ const contentEntries = [
         categoryId: 'updates',
         date: 'Oct 2026',
         title: 'On X-Drives, PID, and HoloLib',
-        content: 'After joining 12790X Entropic Alpacas, I expected holonomic autonomous control to be much harder than differential-drive curves. HoloLib revealed a cleaner model: three feedback loops, one coordinate transform, and a wheel-mixing matrix.',
+        content: 'Working with an X-drive was a novel pursuit for most of us. On the software side, our goal was to be able to use libraries to help us better control the robot, especially for autonomous programming.',
         href: 'x-drive-holonomic-control.html',
         projectId: 'robotics'
     },
@@ -269,8 +269,8 @@ const contentEntries = [
         categoryId: 'opinions',
         date: 'Oct 2026',
         title: 'On X-Drives, PID, and HoloLib',
-        content: 'I expected an X-drive to demand a much stranger control model. Instead, separating x, y, and heading made the logic more direct—and showed how removing a mechanical constraint can simplify the software model.',
-        tileDescription: 'A practical discovery about PID loops, coordinate frames, and the unexpectedly elegant kinematics behind holonomic motion.',
+        content: 'While yes, the brain now needs to run three separate loops instead of two, it is far more elegant and simple. Completely contrary to what I first thought.',
+        tileDescription: 'Fascinated, I dug deeper into how HoloLib does it to see if it is really anything much different from differential drives.',
         href: 'x-drive-holonomic-control.html',
         projectId: 'robotics'
     },
@@ -574,6 +574,35 @@ function renderOpinionsPageItems() {
     renderEntryList('opinions-list', getEntriesByCategory('opinions'));
 }
 
+function renderWritingPage() {
+    const container = document.getElementById('writing-list');
+    if (!container) return;
+
+    const requestedSection = new URLSearchParams(window.location.search).get('section');
+    const section = requestedSection === 'opinions' || requestedSection === 'opinion'
+        ? 'opinions'
+        : 'journal';
+    const categoryId = section === 'opinions' ? 'opinions' : 'updates';
+    const title = section === 'opinions' ? 'Opinion' : 'Journal';
+    const description = section === 'opinions'
+        ? 'Essays and perspective on technology, music, learning, and the tools around them.'
+        : 'Build logs, research notes, milestones, and work in progress.';
+
+    document.getElementById('writing-section-title').textContent = title;
+    document.getElementById('writing-section-description').textContent = description;
+    document.querySelectorAll('[data-writing-section]').forEach((link) => {
+        const isCurrent = link.dataset.writingSection === section;
+        link.classList.toggle('is-current', isCurrent);
+        if (isCurrent) {
+            link.setAttribute('aria-current', 'page');
+        } else {
+            link.removeAttribute('aria-current');
+        }
+    });
+
+    renderEntryList('writing-list', getEntriesByCategory(categoryId));
+}
+
 function renderProjectsResearchPageItems() {
     renderProjectsResearchTiles('projects-grid');
     renderProjectsResearchTiles('research-areas-grid');
@@ -654,6 +683,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderHomeVideos();
     renderHomeOpinions();
     renderOpinionsPageItems();
+    renderWritingPage();
     renderVideosPageItems();
     console.log('Website loaded');
 });

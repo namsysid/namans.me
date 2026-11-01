@@ -11,7 +11,7 @@
                 <a href="about.html">About</a><a href="cv.html">Résumé</a><a href="contact.html">Contact</a></nav></div></header>
 <main id="main-content"><div class="news-article">
     <a class="folder-back-link" href="pedal-visualizer.html">← Back to Sustain Pedal Visualizer</a>
-    <div class="journal-navigation"><a class="journal-back-tile" href="updates.html"><span class="journal-next-arrow" aria-hidden="true">←</span><span><span class="journal-next-label">Journal blogs</span><span class="journal-next-title">Back to all blogs</span></span></a><a class="journal-next-tile" href="pedal-visualizer-acoustics.html"><span><span class="journal-next-label">Next in this project</span><span class="journal-next-title">From Piano Acoustics to a Real-Time Detector</span></span><span class="journal-next-arrow" aria-hidden="true">→</span></a></div>
+    <div class="journal-navigation"><a class="journal-back-tile" href="writing.html?section=journal"><span class="journal-next-arrow" aria-hidden="true">←</span><span><span class="journal-next-label">Journal blogs</span><span class="journal-next-title">Back to all blogs</span></span></a><a class="journal-next-tile" href="pedal-visualizer-acoustics.html"><span><span class="journal-next-label">Next in this project</span><span class="journal-next-title">From Piano Acoustics to a Real-Time Detector</span></span><span class="journal-next-arrow" aria-hidden="true">→</span></a></div>
     <div class="news-date">jan 2026 · sustain pedal visualizer 01</div>
     <h1>Making Sustain Visible</h1>
     <div class="news-article-content">
@@ -29,9 +29,19 @@
         <h3>A colorable background</h3>
         <ul><li>The background begins white, while the circles contribute their colors to it.</li><li>Larger circles add more color, while the background continuously moves back toward white.</li><li>The effect of the pedal appears through the background’s murkiness: the more blurred the music becomes, the darker and more opaque the background grows.</li></ul>
         <p>If a user plays sharply without pedal, the acoustic energy falls quickly. The circles fade rapidly and the background remains largely white. With continuously sustained pedal, the acoustic energy stays high, the circles remain large for longer, and the background grows progressively darker.</p>
+        <div class="article-image-grid pedal-comparison-grid" role="group" aria-label="Dry and sustained-pedal visualizer comparison">
+            <figure>
+                <img src="assets/img/pedal-visualizer/dry.png" alt="Pedal Visualizer showing distinct circles on a light background while the pedal remains off" width="1440" height="900" loading="lazy" decoding="async">
+                <figcaption><strong>Dry playing:</strong> note events remain distinct and the background stays close to its neutral color.</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/img/pedal-visualizer/pedal.png" alt="Pedal Visualizer showing circles over a darkened background with the pedal on and a release-pedal warning" width="1440" height="900" loading="lazy" decoding="async">
+                <figcaption><strong>Sustained pedal:</strong> resonance accumulates in the background until the interface prompts the player to release.</figcaption>
+            </figure>
+        </div>
         <p>The eventual test is straightforward: compare how well students use the pedal when practicing with the visualizer against students practicing without it.</p>
     </div>
 </div></main>
-    <footer class="site-footer inner-footer"><div class="shell footer-grid"><div class="footer-monogram" aria-hidden="true">NS</div><div class="footer-identity"><p class="footer-name">Naman Siddheshwar</p><p>Student researcher, builder, and musician.</p></div><nav class="footer-nav" aria-label="Footer navigation"><a href="news.html">News</a><a href="updates.html">Journal</a><a href="videos.html">Videos</a><a href="contact.html">Contact</a></nav></div><div class="shell footer-bottom"><p>© 2026 Naman Siddheshwar</p><a href="index.html">Back to home <span aria-hidden="true">↑</span></a></div></footer>
+    <footer class="site-footer inner-footer"><div class="shell footer-grid"><div class="footer-monogram" aria-hidden="true">NS</div><div class="footer-identity"><p class="footer-name">Naman Siddheshwar</p><p>Student researcher, builder, and musician.</p></div><nav class="footer-nav" aria-label="Footer navigation"><a href="news.html">News</a><a href="writing.html?section=journal">Journal</a><a href="videos.html">Videos</a><a href="contact.html">Contact</a></nav></div><div class="shell footer-bottom"><p>© 2026 Naman Siddheshwar</p><a href="index.html">Back to home <span aria-hidden="true">↑</span></a></div></footer>
 </body>
 </html>

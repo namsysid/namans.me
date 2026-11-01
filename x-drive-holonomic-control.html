@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Notes on X-drives, PID control, differential-drive curves, and HoloLib for VEX Robotics.">
+    <meta name="description" content="On X-drives, PID, and HoloLib for VEX Robotics.">
     <title>On X-Drives, PID, and HoloLib | Naman Siddheshwar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +44,7 @@
                     <span class="journal-next-arrow" aria-hidden="true">←</span>
                     <span><span class="journal-next-label">Previous journal blog</span><span class="journal-next-title">On Models Used for My Question Generation System</span></span>
                 </a>
-                <a class="journal-next-tile" href="opinions.html">
+                <a class="journal-next-tile" href="writing.html?section=opinions">
                     <span><span class="journal-next-label">More writing</span><span class="journal-next-title">Browse opinion essays</span></span>
                     <span class="journal-next-arrow" aria-hidden="true">→</span>
                 </a>
@@ -53,103 +53,68 @@
             <h1>On X-Drives, PID, and HoloLib</h1>
 
             <div class="news-article-content">
-                <p>I have joined the 2026–2027 VEX Robotics season with <strong>12790X Entropic Alpacas</strong>. For this season, we decided to adopt an X-drive configuration, which allows the robot to move in any direction without first rotating to face that direction. We chose it because this year’s game, <a href="https://www.vexrobotics.com/v5/competition/vrc-current-game" target="_blank" rel="noopener noreferrer">Override</a>, requires a lot of rotation and dexterity while picking up and stacking Pins and Cups.</p>
+                <p>I have joined the new 2026-2027 VEX Robotics season with 12790X Entropic Alpacas. For this new season, we have decided to adopt an X-drive configuration, allowing the robot to move in all directions without rotating itself about its origin. We chose this because this year’s game required a lot of rotation and dexterity in picking pins up and stacking them up.</p>
 
-                <p>Working with an X-drive was new for most of us. On the software side, our goal was to use libraries to control the robot more reliably, especially during autonomous. I quickly discovered that the standard libraries we knew—LemLib, JAR-Template, and EZ-Template—did not have the X-drive support we needed for PID control and curved paths. While searching through GitHub repositories, we found <a href="https://github.com/calhighrobotics/HoloLib" target="_blank" rel="noopener noreferrer">HoloLib</a>, which runs on PROS.</p>
+                <p>Working with an X-drive was a novel pursuit for most of us. On the software side, our goal was to be able to use libraries to help us better control the robot, especially for autonomous programming. I quickly discovered that the standard libraries (LemLib, JAR, EZ-Template) did not have proper support for X-drive PID and curves. Searching through GitHub repositories, we stumbled upon a library called <a href="https://github.com/calhighrobotics/HoloLib" target="_blank" rel="noopener noreferrer">HoloLib</a>, running on PROS.</p>
 
-                <p>HoloLib turned out to be very useful. We can create quick and efficient routes while using the full movement capabilities of the X-drive. The robot can rotate while moving in a direction that is not parallel to its heading, removing the need for some time-consuming curves. It also resolved our biggest concern: spending weeks working out how to build several PID loops that run in parallel.</p>
+                <p>HoloLib turned out to be an amazing tool. We are able to create routes on the X-drive that are quick and efficient. Most importantly, we are able to fully extract the potential of the X-drive in autonomous programming. That resolved our biggest fear – weeks of working out how to create parallel PID loops. This means that we can rotate our robot and move in ways not parallel to the heading of the robot, eradicating the need to take time-consuming curves.</p>
 
-                <p>I wanted to understand how HoloLib does this, and whether it is really that different from controlling a differential drive.</p>
+                <img src="assets/img/x-drive-simultaneous-motion.png" alt="Top-down diagram of an X-drive translating diagonally while rotating" class="news-article-image" loading="lazy">
 
-                <h2 id="pid-loops">PID Loops</h2>
+                <p>Fascinated, I dug deeper into how HoloLib does it to see if it is really anything much different from differential drives.</p>
 
-                <p>A PID—proportional, integral, derivative—controller is a negative-feedback loop. It uses the current position, the target position, and the difference between them to calculate a motor command. In one dimension, it can be written as</p>
+                <h2>PID Loops</h2>
 
-                \[
-                u(t)=K_P e(t)+K_I\int_0^t e(\tau)\,d\tau+K_D\frac{de(t)}{dt}.
-                \]
-
-                <p>Here, \(e(t)=x_{\mathrm{target}}-x_{\mathrm{current}}(t)\), and \(K_P\), \(K_I\), and \(K_D\) are constants that have to be tuned for the actual robot.</p>
-
-                <p>The proportional term responds to the current error, the derivative term damps rapid changes and helps limit overshoot, and the integral term accumulates error over time. The integral term can correct a small error that persists after the proportional and derivative terms have become too small, although too much integral action can cause windup.</p>
-
-                <p>The world is not one-dimensional, of course. Most VEX path-following systems work with the robot’s pose \((x,y,\theta)\).</p>
-
-                <h2 id="differential-drive">Parallel PID Loops (Curves): Differential Drive</h2>
-
-                <p>A standard tank or differential drive has two controllable motions: forward velocity \(v\) and angular velocity \(\omega\). Each can have a separate PID loop running in parallel.</p>
-
-                <p>When working with \((x,y,\theta)\), the two-dimensional position error must first be converted into a linear error that the drivetrain can use. Let</p>
+                <p>As a pretext, PID (proportional-integral-derivative) loops are negative feedback loops that operate on the information of the current position, the target position, and the difference between them.<br>
+                In a 1-Dimensional System, a PID loop calculates the velocity that the motors should be traveling at through the following equation:</p>
 
                 \[
-                \mathbf e_p=
-                \begin{bmatrix}
-                x_t-x_c\\
-                y_t-y_c
-                \end{bmatrix}.
+                V = Pe + I\left(\int e\,dt\right) + D\frac{de}{dt}
                 \]
 
-                <p>Projecting this vector onto the robot’s forward unit vector gives</p>
+                <p>Where P, I, and D are constants that have to be experimentally measured and tuned, through several techniques like the Z-N method, etc.,<br>
+                and e is the error function, \(e = x_t - x_c(t)\), and \(x_t\) is the target position, and \(x_c(t)\) is the current position as a function of time.</p>
+
+                <p>The idea is that the P term serves as an accelerator, the D term as a brake, and the I term as a “memory” term that enforces a final push as the error gets smaller and smaller as time goes on (and so P and D get too small, whereas only I is big enough to push to the end).</p>
+
+                <p>Of course though, the world is not 1-Dimensional. Most VRC curve PID loops operate in the \((x, y, \theta)\) frame.</p>
+
+                <h2>Parallel PID Loops (Curves) - Differential Drive</h2>
+
+                <p>This is essentially curves in standard tank drives, the much more common approach. In a tank drive, there are two controllable motions: forward velocity (v) and rotation (omega). Each have separate PID loops running in parallel.</p>
+
+                <p>This means that when dealing with \((x, y, t)\), there needs to be a way to translate the \((x, y)\) translational vector into a linear error function to plug back into the PID equation. Essentially, the error vector \(\mathbf e= \begin{bmatrix} x_t-x_c\\ y_t-y_c \end{bmatrix},\) is projected onto the robot’s forward unit vector, and the magnitude is taken. So we end up with \(e_{\text{forward}} = e_x\cos\theta+e_y\sin\theta\), and we can then use that scalar quantity in the PID equation for the v component.</p>
+
+                <p>The rotational component just uses the wrap of the angular error (a scalar) to calculate omega.</p>
+
+                <p>Then, when providing actual velocities to the motors, each motor group (left/right) is provided a linear combination of v and omega:</p>
 
                 \[
-                e_{\mathrm{forward}}
-                =e_x\cos\theta+e_y\sin\theta.
+                v_L=v-\frac{B}{2}\omega,\qquad v_R=v+\frac{B}{2}\omega
                 \]
 
-                <p>This scalar can be used in the PID loop for \(v\). The rotational loop uses the wrapped angular error</p>
+                <p>where B is the width of the drivetrain.</p>
 
-                \[
-                e_\theta=\operatorname{wrap}(\theta_t-\theta_c)
-                \]
+                <h2>Parallel PID Loops (Curves) - X-drive</h2>
 
-                <p>to calculate \(\omega\). The left and right wheel speeds are then linear combinations of \(v\) and \(\omega\):</p>
+                <p>One might think that X-drives would be more complex, given that they have now three directions to work with. But you’d be surprised.</p>
 
-                \[
-                \omega_L=\frac{1}{r}\left(v-\frac{B}{2}\omega\right),
-                \qquad
-                \omega_R=\frac{1}{r}\left(v+\frac{B}{2}\omega\right),
-                \]
+                <p>Again, dealing with \((x, y, t)\) coordinates. X-drive actually gives more flexibility, as it can actually travel in each of those dimensions independently.</p>
 
-                <p>where \(B\) is the drivetrain width and \(r\) is the wheel radius. A differential drive cannot directly correct sideways error, so it must rotate until its forward direction points toward the desired motion. This is what produces a curve.</p>
+                <p>So now there are just separate errors (ex, ey, eomega) and separate dimensional scalar velocities (vx, vy, omega) without any complex vector operations.</p>
 
-                <h2 id="x-drive">Parallel PID Loops (Curves): X-Drive</h2>
-
-                <p>An X-drive has three controllable motions: sideways velocity \(v_x\), forward velocity \(v_y\), and angular velocity \(\omega\). This means that separate PID loops can be used for \(x\), \(y\), and \(\theta\).</p>
-
-                <p>If the translational command is calculated in field coordinates, it first has to be rotated into the robot’s coordinate frame:</p>
-
-                \[
-                \begin{bmatrix}
-                v_x^{(r)}\\
-                v_y^{(r)}
-                \end{bmatrix}
-                =
-                \begin{bmatrix}
-                \cos\theta &amp; \sin\theta\\
-                -\sin\theta &amp; \cos\theta
-                \end{bmatrix}
-                \begin{bmatrix}
-                v_x^{(f)}\\
-                v_y^{(f)}
-                \end{bmatrix}.
-                \]
-
-                <p>For a 45° X-drive, the wheel commands can then be found through linear superposition:</p>
+                <p>Now, for putting it into action. Assuming a 45° X-drive drivetrain, it is just the principle of linear superposition, same as with the differential drive. Nothing more. So each wheel’s velocity is \(\mathbf{w}=J \begin{bmatrix} v_x\\ v_y\\ \omega \end{bmatrix}\), which looks something like this:</p>
 
                 \[
                 \begin{aligned}
-                \omega_1 &amp;= \frac{1}{r}\left(v_x^{(r)}+v_y^{(r)}+R\omega\right),\\
-                \omega_2 &amp;= \frac{1}{r}\left(-v_x^{(r)}+v_y^{(r)}-R\omega\right),\\
-                \omega_3 &amp;= \frac{1}{r}\left(v_x^{(r)}+v_y^{(r)}-R\omega\right),\\
-                \omega_4 &amp;= \frac{1}{r}\left(-v_x^{(r)}+v_y^{(r)}+R\omega\right).
+                w_1 &amp;= v_x+v_y+\omega\\
+                w_2 &amp;=-v_x+v_y-\omega\\
+                w_3 &amp;= v_x+v_y-\omega\\
+                w_4 &amp;=-v_x+v_y+\omega
                 \end{aligned}
                 \]
 
-                <p>Here, \(R\) is the effective distance from the robot’s center to each wheel’s contact direction. The signs depend on the wheel numbering, motor orientation, and coordinate convention, but the principle is the same: each wheel receives a combination of sideways motion, forward motion, and rotation.</p>
-
-                <p>The robot now runs three motion loops instead of two, but the basic idea is more direct than I expected. There is an error and a commanded velocity for each degree of freedom, followed by a coordinate transformation and a wheel mixer. HoloLib handles these calculations along with the other parts of autonomous control.</p>
-
-                <p>So, although the X-drive is mechanically more flexible, its core control model is not necessarily more complicated. In some ways, it is simpler because the software can treat the \(x\), \(y\), and heading errors independently.</p>
+                <p>While yes, the brain now needs to run three separate loops instead of two, it is far more elegant and simple. Completely contrary to what I first thought.</p>
             </div>
         </article>
     </main>
@@ -163,7 +128,7 @@
             </div>
             <nav class="footer-nav" aria-label="Footer navigation">
                 <a href="news.html">News</a>
-                <a href="updates.html">Journal</a>
+                <a href="writing.html?section=journal">Journal</a>
                 <a href="videos.html">Videos</a>
                 <a href="contact.html">Contact</a>
             </nav>
