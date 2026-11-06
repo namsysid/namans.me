@@ -82,6 +82,26 @@ const projectsResearch = [
 
 const contentEntries = [
     {
+        categoryId: 'news',
+        date: 'Nov 2026',
+        title: 'Two Competitions, Two Awards',
+        content: '12790X Entropic Alpacas opened the season with a Judges Award and an Amaze Award across its first two competitions.',
+        image: 'assets/img/entropic-alpacas-two-awards.webp',
+        imageAlt: '12790X Entropic Alpacas robot displayed beside its Judges Award trophy',
+        href: 'two-competitions-two-awards.html',
+        projectId: 'robotics'
+    },
+    {
+        categoryId: 'updates',
+        date: 'Nov 2026',
+        title: 'Two Competitions, Two Awards',
+        content: 'The first two competitions for 12790X Entropic Alpacas yielded a solid start to the season, with Judges and Amaze awards recognizing our work across mechanical design, software, and team management.',
+        image: 'assets/img/entropic-alpacas-two-awards.webp',
+        imageAlt: '12790X Entropic Alpacas robot displayed beside its Judges Award trophy',
+        href: 'two-competitions-two-awards.html',
+        projectId: 'robotics'
+    },
+    {
         categoryId: 'updates',
         date: 'Oct 2026',
         title: 'On X-Drives, PID, and HoloLib',

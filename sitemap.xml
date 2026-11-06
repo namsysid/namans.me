@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://namans.me/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://namans.me/about.html</loc>
@@ -78,7 +78,7 @@
   </url>
   <url>
     <loc>https://namans.me/news.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://namans.me/on-noteflight-notation-softwares.html</loc>
@@ -137,12 +137,16 @@
     <lastmod>2026-09-13</lastmod>
   </url>
   <url>
+    <loc>https://namans.me/two-competitions-two-awards.html</loc>
+    <lastmod>2026-11-05</lastmod>
+  </url>
+  <url>
     <loc>https://namans.me/usopen-winner.html</loc>
     <lastmod>2026-09-13</lastmod>
   </url>
   <url>
     <loc>https://namans.me/vex-robotics.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://namans.me/vex-robotics-awards.html</loc>
@@ -154,7 +158,7 @@
   </url>
   <url>
     <loc>https://namans.me/writing.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://namans.me/x-drive-holonomic-control.html</loc>

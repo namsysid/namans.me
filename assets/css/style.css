@@ -261,7 +261,7 @@ main a:hover { text-decoration-color: currentColor; }
 
 .writing-browser {
     display: grid;
-    grid-template-columns: 170px minmax(0, 1fr);
+    grid-template-columns: 200px minmax(0, 1fr);
     gap: clamp(42px, 7vw, 76px);
     margin-top: 46px;
 }
@@ -269,10 +269,10 @@ main a:hover { text-decoration-color: currentColor; }
 .writing-sidebar { align-self: start; border-top: 1px solid var(--line-strong); }
 .writing-sidebar > p { margin: 14px 0 18px; color: var(--ink-soft); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .writing-sidebar nav { display: grid; }
-.writing-sidebar a { padding: 11px 0; border-bottom: 1px solid var(--line); color: var(--ink-soft); font-family: var(--serif); font-size: 1.02rem; text-decoration: none; }
+.writing-sidebar a { padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--ink-soft); font-family: var(--serif); font-size: 1.18rem; line-height: 1.25; text-decoration: none; }
 .writing-sidebar a:hover, .writing-sidebar a:focus-visible { color: var(--blue); }
-.writing-sidebar a.is-current { color: var(--blue-dark); font-weight: 600; }
-.writing-sidebar a.is-current::after { float: right; content: "→"; font-family: var(--sans); font-size: 0.82rem; }
+.writing-sidebar a.is-current { color: var(--blue-dark); font-size: 1.38rem; font-weight: 600; }
+.writing-sidebar a.is-current::after { float: right; content: "→"; font-family: var(--sans); font-size: 1rem; }
 
 .writing-browser-content { min-width: 0; }
 .writing-section-heading { margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--line-strong); }
@@ -500,6 +500,8 @@ a.product-suite-card:focus-visible {
     object-fit: cover;
     box-shadow: var(--shadow);
 }
+
+.news-article-image--portrait { max-width: 760px; }
 
 .news-article-content figure {
     max-width: 100%;
@@ -1149,7 +1151,7 @@ a.product-suite-card:focus-visible {
     .video-grid { grid-template-columns: 1fr; }
     .writing-browser { grid-template-columns: 1fr; gap: 28px; }
     .writing-sidebar nav { display: flex; gap: 24px; }
-    .writing-sidebar a { min-width: 110px; }
+    .writing-sidebar a { min-width: 130px; }
     .resume-page main { width: min(100% - 34px, 640px); }
     .resume-pdf-frame { height: 72vh; min-height: 480px; padding: 10px; }
 
