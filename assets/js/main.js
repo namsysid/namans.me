@@ -80,10 +80,35 @@ const projectsResearch = [
     }
 ];
 
+// The RSS feed is generated from these entries. Give new posts a unique href and
+// a published date (YYYY-MM-DD), then run `npm run generate:rss` before deploy.
 const contentEntries = [
     {
         categoryId: 'news',
         date: 'Nov 2026',
+        published: '2026-11-16',
+        title: 'Excellence Award: See You at States!',
+        content: '12790X Entropic Alpacas won the Excellence Award and qualified for the state championship.',
+        image: 'assets/img/entropic-alpacas-excellence-award.webp',
+        imageAlt: '12790X Entropic Alpacas robot posed beside a VEX Robotics award',
+        href: 'excellence-award-see-you-at-states.html',
+        projectId: 'robotics'
+    },
+    {
+        categoryId: 'updates',
+        date: 'Nov 2026',
+        published: '2026-11-16',
+        title: 'Excellence Award: See You at States!',
+        content: '12790X Entropic Alpacas won the Excellence Award, recognizing the team’s robot design, engineering documentation, programming, match performance, and teamwork. We’ll see you at states!',
+        image: 'assets/img/entropic-alpacas-excellence-award.webp',
+        imageAlt: '12790X Entropic Alpacas robot posed beside a VEX Robotics award',
+        href: 'excellence-award-see-you-at-states.html',
+        projectId: 'robotics'
+    },
+    {
+        categoryId: 'news',
+        date: 'Nov 2026',
+        published: '2026-11-05',
         title: 'Two Competitions, Two Awards',
         content: '12790X Entropic Alpacas opened the season with a Judges Award and an Amaze Award across its first two competitions.',
         image: 'assets/img/entropic-alpacas-two-awards.webp',
@@ -104,6 +129,7 @@ const contentEntries = [
     {
         categoryId: 'updates',
         date: 'Oct 2026',
+        published: '2026-10-10',
         title: 'On X-Drives, PID, and HoloLib',
         content: 'Working with an X-drive was a novel pursuit for most of us. On the software side, our goal was to be able to use libraries to help us better control the robot, especially for autonomous programming.',
         href: 'x-drive-holonomic-control.html',
@@ -112,6 +138,7 @@ const contentEntries = [
     {
         categoryId: 'updates',
         date: 'Sep 2026',
+        published: '2026-09-13',
         title: 'On Models Used for My Question Generation System',
         content: 'While building the F=ma question-generation system for STEAMCOACH, I compared local open-weight models with GPT-family models. The local models often became trapped in extended self-critique, while GPT-5-mini produced questions close in quality to GPT-5 at a lower cost.',
         href: 'steamcoach-question-generation-models.html',
@@ -120,6 +147,7 @@ const contentEntries = [
     {
         categoryId: 'updates',
         date: 'Aug 2026',
+        published: '2026-08-07',
         title: 'ESAP Robotics Final: Wrapping Up the Piano Player',
         content: 'The final piano player work focused on speed and reliability: optimizing code, moving to MIDI-like note events, using non-blocking schedulers, tuning servo lift-time logic for repeated notes, and stiffening the MDF build so the robot could play faster pieces more clearly.',
         image: 'assets/img/esap-robotics-servo-keyboard-build.jpg',

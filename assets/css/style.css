@@ -510,6 +510,22 @@ a.product-suite-card:focus-visible {
 
 .news-article-content figure > img { margin: 0; }
 
+.news-article-content .article-video-example {
+    max-width: 430px;
+    margin-inline: auto;
+}
+
+.article-video-example video {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #1f313c;
+    box-shadow: var(--shadow);
+    object-fit: cover;
+}
+
 .news-article-content figcaption {
     margin-top: 0.75rem;
     color: #6b7074;

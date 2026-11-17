@@ -2,6 +2,10 @@
   "name": "namans-web",
   "private": true,
   "scripts": {
+    "generate:rss": "node scripts/generate_rss.mjs",
+    "check:rss": "node scripts/generate_rss.mjs --check",
+    "test": "npm run check:rss",
+    "predev": "npm run generate:rss",
     "dev": "live-server --host=127.0.0.1 --port=5500 .",
     "start": "npm run dev"
   },

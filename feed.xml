@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Naman Siddheshwar — Updates</title>
+    <link>https://namans.me/</link>
+    <description>New projects, research notes, journal entries, opinions, and news from Naman Siddheshwar.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Nov 2026 12:00:00 GMT</lastBuildDate>
+    <generator>namans.me RSS generator</generator>
+    <ttl>60</ttl>
+    <atom:link href="https://namans.me/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Excellence Award: See You at States!</title>
+      <link>https://namans.me/excellence-award-see-you-at-states.html</link>
+      <guid isPermaLink="true">https://namans.me/excellence-award-see-you-at-states.html</guid>
+      <pubDate>Mon, 16 Nov 2026 12:00:00 GMT</pubDate>
+      <category>News</category>
+      <description>12790X Entropic Alpacas won the Excellence Award and qualified for the state championship.</description>
+    </item>
+    <item>
+      <title>Two Competitions, Two Awards</title>
+      <link>https://namans.me/two-competitions-two-awards.html</link>
+      <guid isPermaLink="true">https://namans.me/two-competitions-two-awards.html</guid>
+      <pubDate>Thu, 05 Nov 2026 12:00:00 GMT</pubDate>
+      <category>News</category>
+      <description>12790X Entropic Alpacas opened the season with a Judges Award and an Amaze Award across its first two competitions.</description>
+    </item>
+    <item>
+      <title>On X-Drives, PID, and HoloLib</title>
+      <link>https://namans.me/x-drive-holonomic-control.html</link>
+      <guid isPermaLink="true">https://namans.me/x-drive-holonomic-control.html</guid>
+      <pubDate>Sat, 10 Oct 2026 12:00:00 GMT</pubDate>
+      <category>Journal</category>
+      <description>Working with an X-drive was a novel pursuit for most of us. On the software side, our goal was to be able to use libraries to help us better control the robot, especially for autonomous programming.</description>
+    </item>
+    <item>
+      <title>On Models Used for My Question Generation System</title>
+      <link>https://namans.me/steamcoach-question-generation-models.html</link>
+      <guid isPermaLink="true">https://namans.me/steamcoach-question-generation-models.html</guid>
+      <pubDate>Sun, 13 Sep 2026 12:00:00 GMT</pubDate>
+      <category>Journal</category>
+      <description>While building the F=ma question-generation system for STEAMCOACH, I compared local open-weight models with GPT-family models. The local models often became trapped in extended self-critique, while GPT-5-mini produced questions close in quality to GPT-5 at a lower cost.</description>
+    </item>
+    <item>
+      <title>ESAP Robotics Final: Wrapping Up the Piano Player</title>
+      <link>https://namans.me/esap-robotics-final-piano-player.html</link>
+      <guid isPermaLink="true">https://namans.me/esap-robotics-final-piano-player.html</guid>
+      <pubDate>Fri, 07 Aug 2026 12:00:00 GMT</pubDate>
+      <category>Journal</category>
+      <description>The final piano player work focused on speed and reliability: optimizing code, moving to MIDI-like note events, using non-blocking schedulers, tuning servo lift-time logic for repeated notes, and stiffening the MDF build so the robot could play faster pieces more clearly.</description>
+    </item>
+    <item>
+      <title>Early Steps to Building Piano Player</title>
+      <link>https://namans.me/esap-robotics-piano-player-early-steps.html</link>
+      <guid isPermaLink="true">https://namans.me/esap-robotics-piano-player-early-steps.html</guid>
+      <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
+      <category>Journal</category>
+      <description>We started turning actuator tests into a piano-playing prototype: testing whether small servos could press keys, coordinating seven servos to play a melody, scaling to a PCA9685 PWM driver, and measuring keypress delay so timing could be compensated in software.</description>
+    </item>
+    <item>
+      <title>ESAP Robotics: Servos, Solenoids, PWM, and Digital Inputs</title>
+      <link>https://namans.me/esap-robotics-actuators-pwm.html</link>
+      <guid isPermaLink="true">https://namans.me/esap-robotics-actuators-pwm.html</guid>
+      <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
+      <category>Journal</category>
+      <description>I moved from basic signal generation into actuation: shaping LED brightness with PWM, verifying a 50 Hz servo pulse on an oscilloscope, driving solenoids through MOSFETs, and debouncing digital inputs so software could distinguish real presses from electrical noise.</description>
+    </item>
+    <item>
+      <title>First Days in ESAP Robotics: Breadboards, Voltage Dividers, and Potentiometers</title>
+      <link>https://namans.me/esap-robotics-electronics.html</link>
+      <guid isPermaLink="true">https://namans.me/esap-robotics-electronics.html</guid>
+      <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
+      <category>Journal</category>
+      <description>In my first few days in ESAP robotics, I worked through the electronics basics behind sensor inputs: setting up voltage dividers, measuring output with a multimeter, and wiring potentiometer systems on breadboards.</description>
+    </item>
+    <item>
+      <title>Music Recommendation System Being Used for Actual Empathy Concerts</title>
+      <link>https://namans.me/music-recommendation-full-system.html</link>
+      <guid isPermaLink="true">https://namans.me/music-recommendation-full-system.html</guid>
+      <pubDate>Fri, 01 May 2026 12:00:00 GMT</pubDate>
+      <category>News</category>
+      <description>The full Music Recommendation Systems pipeline is being used to recommend songs for real empathy concerts, ranking candidate songs by predicted patient sing-along response.</description>
+    </item>
+    <item>
+      <title>Music Recommendation Systems: Update on the Classical DSP System</title>
+      <link>https://namans.me/music-recommendation-dsp-update.html</link>
+      <guid isPermaLink="true">https://namans.me/music-recommendation-dsp-update.html</guid>
+      <pubDate>Fri, 01 May 2026 12:00:00 GMT</pubDate>
+      <category>Journal</category>
+      <description>I found Essentia from UPF, a library with many classical music information retrieval tools, and started working on melodic similarity as the first component of the similarity vector. I tried creating a temporal chroma vector from Essentia&apos;s Predominant Melody Extraction, but the output was noisy and inaccurate. It may still be useful if it captures differences between songs, though a cleaner melody extraction method would make comparison more reliable.</description>
+    </item>
+    <item>
+      <title>Music Recommendation Systems: A New Side of Recommendation: Classical DSP System</title>
+      <link>https://namans.me/music-recommendation-dsp.html</link>
+      <guid isPermaLink="true">https://namans.me/music-recommendation-dsp.html</guid>
+      <pubDate>Fri, 01 May 2026 12:00:00 GMT</pubDate>
+      <category>Journal</category>
+      <description>I plan to build a classical DSP-based recommendation system because the MuQ embedding pipeline is not very explainable or modifiable, and concert testing is too slow as the only validation method. The new system will use a 6-7 component similarity vector covering melodic, harmonic, rhythmic, valence, arousal, timbre, and chorus-prominence signals, with components grouped into similarity-only measures and state-function measures.</description>
+    </item>
+    <item>
+      <title>Music Recommendation Systems: Update on the Recommendation System</title>
+      <link>https://namans.me/music-recommendation-update.html</link>
+      <guid isPermaLink="true">https://namans.me/music-recommendation-update.html</guid>
+      <pubDate>Fri, 01 May 2026 12:00:00 GMT</pubDate>
+      <category>Journal</category>
+      <description>I successfully implemented the recommendation pipeline and worked with my piano school to incorporate the results into next month&apos;s recital. Building the candidate song list was difficult because Billboard hits of the day did not always include the most iconic songs, and some top songs are not widely remembered today. I found a list of the most requested songs of the 50s and 60s and used that for the candidate songs.</description>
+    </item>
+    <item>
+      <title>Music Recommendation Systems: Introduction</title>
+      <link>https://namans.me/music-recommendation-introduction.html</link>
+      <guid isPermaLink="true">https://namans.me/music-recommendation-introduction.html</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 GMT</pubDate>
+      <category>Journal</category>
+      <description>I started working in this area after helping organize and perform Empathy Concerts for my piano school, where we played 50s and 60s pop on piano for geriatric patients. The results were striking: patients who could not remember their own names still sang along to specific songs. But this only worked for some songs, and selection was done by brute force. My hypothesis is that there is an algorithmic way to predict which songs they will like, instead of manually trying many candidates.</description>
+    </item>
+    <item>
+      <title>Music Recommendation Systems: Proposed Product and Early Steps</title>
+      <link>https://namans.me/music-recommendation-pipeline.html</link>
+      <guid isPermaLink="true">https://namans.me/music-recommendation-pipeline.html</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 GMT</pubDate>
+      <category>Journal</category>
+      <description>My proposed product is a recommendation system that takes songs patients liked (sang along) and disliked (no reaction), then predicts new songs they are likely to sing along to. I hypothesize responses are tied more to memory of original recordings than piano covers, so original recordings should be primary inputs. First, I will build a candidate set by release year and popularity using sources such as Spotify and Billboard. For evaluation, since Spotify recommendation APIs are now limited, I plan to use embedding vectors from a Music Representation Model, specifically Tencent MuQ. Rather than directly comparing normalized dot products to liked and disliked sets, I plan to use Bayesian Paired Ranking (BPR) to learn a weight vector that favors liked songs over disliked songs, then rank candidates by dot product with that learned vector.</description>
+    </item>
+    <item>
+      <title>MIT CubeSat Finalist and Best Demo Award</title>
+      <link>https://namans.me/cubesat-finalist.html</link>
+      <guid isPermaLink="true">https://namans.me/cubesat-finalist.html</guid>
+      <pubDate>Sun, 01 Feb 2026 12:00:00 GMT</pubDate>
+      <category>News</category>
+      <description>I am proud to announce that our team was selected as a finalist for the MIT Build a CubeSat competition and has won the Best Demo Award!</description>
+    </item>
+    <item>
+      <title>SBReader has Experimental AI Opponent</title>
+      <link>https://namans.me/sbreader-ai-opponent.html</link>
+      <guid isPermaLink="true">https://namans.me/sbreader-ai-opponent.html</guid>
+      <pubDate>Sun, 01 Feb 2026 12:00:00 GMT</pubDate>
+      <category>News</category>
+      <description>SBReader now has an AI opponent in beginner, intermediate, and advanced modes for self-practice scrims.</description>
+    </item>
+    <item>
+      <title>VRC Robotics US Open Division Finalist</title>
+      <link>https://namans.me/usopen-winner.html</link>
+      <guid isPermaLink="true">https://namans.me/usopen-winner.html</guid>
+      <pubDate>Sun, 01 Feb 2026 12:00:00 GMT</pubDate>
+      <category>News</category>
+      <description>Our VRC team advanced to US Open division finalist standing this season.</description>
+    </item>
+    <item>
+      <title>On Noteflight, Notation Softwares</title>
+      <link>https://namans.me/on-noteflight-notation-softwares.html</link>
+      <guid isPermaLink="true">https://namans.me/on-noteflight-notation-softwares.html</guid>
+      <pubDate>Sun, 01 Feb 2026 12:00:00 GMT</pubDate>
+      <category>Opinion</category>
+      <description>I compare Noteflight, Sibelius, and Musescore from UX, performance, and open-source perspectives, and explain why Musescore is likely the better default for most users.</description>
+    </item>
+    <item>
+      <title>Sustain Pedal Visualizer: Designing the Student Study</title>
+      <link>https://namans.me/pedal-visualizer-methodology.html</link>
+      <guid isPermaLink="true">https://namans.me/pedal-visualizer-methodology.html</guid>
+      <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
+      <category>Journal</category>
+      <description>The proposed evaluation compares control and experimental groups across three student stages, using a shared performance task and a descriptive rubric for underpedaling, overpedaling, score-aligned playing, and musically appropriate pedal choices.</description>
+    </item>
+    <item>
+      <title>Sustain Pedal Visualizer: From Piano Acoustics to a Real-Time Detector</title>
+      <link>https://namans.me/pedal-visualizer-acoustics.html</link>
+      <guid isPermaLink="true">https://namans.me/pedal-visualizer-acoustics.html</guid>
+      <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
+      <category>Journal</category>
+      <description>I examine how sympathetic resonance, RMS, interharmonic energy, and FFT analysis can support a lightweight, real-time estimate of sustain-pedal use—and why plain RMS and transcription models fall short.</description>
+    </item>
+    <item>
+      <title>Sustain Pedal Visualizer: Making Sustain Visible</title>
+      <link>https://namans.me/pedal-visualizer-introduction.html</link>
+      <guid isPermaLink="true">https://namans.me/pedal-visualizer-introduction.html</guid>
+      <pubDate>Thu, 01 Jan 2026 12:00:00 GMT</pubDate>
+      <category>Journal</category>
+      <description>The project translates piano sound into colored circles and a changing background so students can see how volume, resonance, and continuous pedaling affect musical clarity.</description>
+    </item>
+    <item>
+      <title>Vex Robotics Excellence Awards</title>
+      <link>https://namans.me/vex-robotics-awards.html</link>
+      <guid isPermaLink="true">https://namans.me/vex-robotics-awards.html</guid>
+      <pubDate>Mon, 01 Dec 2025 12:00:00 GMT</pubDate>
+      <category>News</category>
+      <description>Flying Penguins wins the Vex Robotics Excellence Award at the Vex Robotics Dublin Dec 2025.</description>
+    </item>
+    <item>
+      <title>SJ Youth Orchestra performs Post Victoriamque!</title>
+      <link>https://namans.me/post-victoriamque.html</link>
+      <guid isPermaLink="true">https://namans.me/post-victoriamque.html</guid>
+      <pubDate>Sat, 01 Nov 2025 12:00:00 GMT</pubDate>
+      <category>News</category>
+      <description>My composition &quot;Post Victoriamque&quot; was performed by the SJ Youth Orchestra at the SJ Youth Orchestra Concert on Nov 2025 at Oclef Center.</description>
+    </item>
+  </channel>
+</rss>
