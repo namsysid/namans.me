@@ -626,20 +626,28 @@ function renderWritingPage() {
     const container = document.getElementById('writing-list');
     if (!container) return;
 
-    const requestedSection = new URLSearchParams(window.location.search).get('section');
+    const params = new URLSearchParams(window.location.search);
+    const requestedSection = params.get('section');
     const section = requestedSection === 'opinions' || requestedSection === 'opinion'
         ? 'opinions'
         : 'journal';
     const categoryId = section === 'opinions' ? 'opinions' : 'updates';
-    const title = section === 'opinions' ? 'Opinion' : 'Journal';
-    const description = section === 'opinions'
+    const requestedProjectId = section === 'journal' ? params.get('project') : null;
+    const projectId = requestedProjectId === 'robotics' ? 'robotics' : null;
+    const title = projectId === 'robotics'
+        ? 'Robotics Posts'
+        : section === 'opinions' ? 'Opinion' : 'Journal';
+    const description = projectId === 'robotics'
+        ? 'Build logs, competition milestones, and engineering notes from my robotics work.'
+        : section === 'opinions'
         ? 'Essays and perspective on technology, music, learning, and the tools around them.'
         : 'Build logs, research notes, milestones, and work in progress.';
 
     document.getElementById('writing-section-title').textContent = title;
     document.getElementById('writing-section-description').textContent = description;
     document.querySelectorAll('[data-writing-section]').forEach((link) => {
-        const isCurrent = link.dataset.writingSection === section;
+        const linkProjectId = link.dataset.writingProject || null;
+        const isCurrent = link.dataset.writingSection === section && linkProjectId === projectId;
         link.classList.toggle('is-current', isCurrent);
         if (isCurrent) {
             link.setAttribute('aria-current', 'page');
@@ -648,7 +656,9 @@ function renderWritingPage() {
         }
     });
 
-    renderEntryList('writing-list', getEntriesByCategory(categoryId));
+    const entries = getEntriesByCategory(categoryId)
+        .filter((entry) => !projectId || entry.projectId === projectId);
+    renderEntryList('writing-list', entries);
 }
 
 function renderProjectsResearchPageItems() {
